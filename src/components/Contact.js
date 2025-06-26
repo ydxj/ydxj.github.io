@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-// import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const cardRef = useRef(null);
+  const formRef = useRef();
   const [status, setStatus] = useState('');
 
   useEffect(() => {
@@ -16,41 +17,51 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus('Message sent! (demo)');
-    setTimeout(() => setStatus(''), 3000);
+
+    emailjs
+      .sendForm(
+        'service_7yh0zzb',  
+        'template_vvzqrgo',  
+        formRef.current,
+        'F4CedTAn0F7HIccVu'    
+      )
+      .then(
+        () => {
+          setStatus('✅ Message sent successfully!');
+          formRef.current.reset();
+        },
+        (error) => {
+          console.error(error);
+          setStatus('❌ Failed to send message.');
+        }
+      );
+
+    setTimeout(() => setStatus(''), 4000);
   };
 
   return (
-    <section id="contact" className="py-5 bg-dark text-light position-relative">
+    <section id="contact" className="py-5 bg-dark text-light">
       <div className="container">
         <h2 className="text-center fw-bold mb-5">Let's Work Together</h2>
         <div className="row justify-content-center">
           <div className="col-md-8">
             <div ref={cardRef} className="bg-light text-dark p-4 rounded shadow-lg">
-              <form onSubmit={handleSubmit}>
+              <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label className="form-label">Full Name</label>
-                  <input type="text" className="form-control" required />
+                  <input type="text" name="user_name" className="form-control" required />
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Email</label>
-                  <input type="email" className="form-control" required />
+                  <input type="email" name="user_email" className="form-control" required />
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Message</label>
-                  <textarea className="form-control" rows="5" required></textarea>
+                  <textarea name="message" className="form-control" rows="5" required></textarea>
                 </div>
                 <button className="btn btn-dark w-100">Send Message</button>
-                {status && <p className="mt-3 text-success">{status}</p>}
+                {status && <p className="mt-3 text-success text-center">{status}</p>}
               </form>
-              <div className="mt-4 d-flex justify-content-center gap-4 fs-4">
-                {/*<a href="mailto:youremail@example.com" className="text-dark">
-                  <FaEnvelope />
-                </a>
-                <a href="https://www.linkedin.com/in/zerhouni-omar/" target="_blank" rel="noreferrer" className="text-dark">
-                  <FaLinkedin />
-                </a>*/}
-              </div>
             </div>
           </div>
         </div>
