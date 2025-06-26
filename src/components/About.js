@@ -23,13 +23,25 @@ const About = () => {
         <div className="row justify-content-center">
           <div className="col-md-8 text-center">
             <p>
-              I’m a passionate frontend developer from Morocco . I specialize in building
-              responsive, interactive, and visually appealing user interfaces using
-              modern tools like React, Bootstrap, and GSAP.
+              I’m a passionate full-stack developer from Morocco, specializing in building responsive,
+              interactive, and visually engaging web applications.
+              With a solid command of both frontend and backend technologies,
+              I craft seamless digital experiences from concept to deployment.
             </p>
             <p>
-              I love turning design ideas into real, usable web experiences — fast,
-              smooth, and elegant.
+              On the frontend, I work extensively with React, Bootstrap, GSAP,
+              and other modern libraries to create fast, elegant, and user-friendly interfaces.
+              On the backend, I build scalable, secure, and efficient APIs and services using technologies like Node.js,
+              Express.js, MongoDB, MySQL, and PostgreSQL.
+            </p>
+            <p>
+              I love bringing design ideas to life and ensuring they’re backed by robust,
+              well-architected systems. Whether I’m refining UI animations or optimizing backend performance, 
+              I take pride in writing clean, maintainable code and staying current with the latest in web development.
+            </p>
+            <p>
+              Always learning, always building — my goal is to deliver experiences that are not just functional, 
+              but memorable.
             </p>
           </div>
         </div>

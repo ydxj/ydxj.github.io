@@ -12,7 +12,13 @@ import {
   nodejs,
   mongodb,
   html,
-  gsape
+  gsape,
+  docker,
+  postgree,
+  laravel,
+  python,
+  php,
+  bootstrap
 } from '../assets/assets';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -32,6 +38,12 @@ const Languages = () => {
     { name: 'Redux', img: redux },
     { name: 'Git', img: git },
     { name: 'GSAP', img: gsape },
+    { name: 'Docker', img: docker },
+    { name: 'PostgreSQL', img: postgree },
+    { name: 'Laravel', img: laravel },
+    { name: 'Python', img: python },
+    { name: 'PHP', img: php },
+    { name: 'Bootstrap', img: bootstrap }
   ];
 
   useEffect(() => {

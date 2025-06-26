@@ -12,6 +12,12 @@ import nodejs from './tech/nodejs.png'
 import mongodb from './tech/mongodb.png'
 import html from './tech/html.png'
 import gsape from './tech/gsap.png'
+import docker from './tech/docker.png'
+import postgree from './tech/postgresql.png'
+import laravel from './tech/Laravel.png'
+import python from './tech/python.png'
+import php from './tech/PHP.png'
+import bootstrap from './tech/Bootstrap.png'
 
 
 
@@ -29,5 +35,11 @@ export {
     nodejs,
     mongodb,
     html,
-    gsape
+    gsape,
+    docker,
+    postgree,
+    laravel,
+    python,
+    php,
+    bootstrap
 }

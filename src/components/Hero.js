@@ -29,7 +29,7 @@ const Hero = () => {
       <div className="container">
         <h1 className="display-4 fw-bold gsap-text">Hi, I'm Omar 👋</h1>
         <p className="lead text-secondary gsap-text">
-          A Frontend Developer crafting beautiful web experiences
+          A Full-Stack Developer crafting beautiful, seamless web experiences
         </p>
         <a href="#projects" className="btn btn-outline-light mt-4 gsap-text">
           View My Work
