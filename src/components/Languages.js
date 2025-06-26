@@ -59,7 +59,7 @@ const Languages = () => {
     <section
       className="bg-dark text-white py-5"
       ref={langRef}
-      id="languages"
+      id="Languages"
     >
       <div className="container text-center">
         <h2 className="mb-5 fw-bold display-5">Languages & Technologies</h2>

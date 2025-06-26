@@ -24,6 +24,7 @@ const Hero = () => {
     <section
       ref={heroRef}
       className="d-flex align-items-center justify-content-center min-vh-100 bg-dark text-white text-center"
+      id='hero'
     >
       <div className="container">
         <h1 className="display-4 fw-bold gsap-text">Hi, I'm Omar 👋</h1>
