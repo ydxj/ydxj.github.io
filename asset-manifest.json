@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ad4bbdcc.css",
+    "main.js": "/static/js/main.a9099517.js",
+    "static/js/453.c2508f5d.chunk.js": "/static/js/453.c2508f5d.chunk.js",
+    "static/media/elearning.png": "/static/media/elearning.12afbf9dc314f7bf6484.png",
+    "static/media/Orgaspace.png": "/static/media/Orgaspace.0f88fa9864bf5cfb488f.png",
+    "static/media/gsap.png": "/static/media/gsap.c9563dfc35d43642602e.png",
+    "static/media/onetask.png": "/static/media/onetask.92c6f55bb30614ed31bd.png",
+    "static/media/Laravel.png": "/static/media/Laravel.fa3cb5e326ff4816dd44.png",
+    "static/media/PHP.png": "/static/media/PHP.9c6195d345b8cf71d064.png",
+    "static/media/express.png": "/static/media/express.f53f212d0d010d54c095.png",
+    "static/media/Bootstrap.png": "/static/media/Bootstrap.1e724d60d7ed3cc0bd52.png",
+    "static/media/postgresql.png": "/static/media/postgresql.6c5d698f195dac2fe5af.png",
+    "static/media/mysql.png": "/static/media/mysql.17ec01314179e9a8ab58.png",
+    "index.html": "/index.html",
+    "main.ad4bbdcc.css.map": "/static/css/main.ad4bbdcc.css.map",
+    "main.a9099517.js.map": "/static/js/main.a9099517.js.map",
+    "453.c2508f5d.chunk.js.map": "/static/js/453.c2508f5d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad4bbdcc.css",
+    "static/js/main.a9099517.js"
+  ]
+}
