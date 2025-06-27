@@ -43,7 +43,7 @@ const Projects = () => {
       description:
         'Website that make people request an information or cource destiner personnal of an hospital in morroco',
       link: 'https://github.com/ydxj/site-web-formation',
-      tags: ['#React', '#CSS', '#Bootstrap', '#NodeJs', '#Express'],
+      tags: ['#React', '#CSS', '#Bootstrap', '#NodeJs', '#Express','#MySQL'],
       image: elearning,
     },
   ];
