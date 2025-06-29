@@ -18,7 +18,8 @@ import {
   laravel,
   python,
   php,
-  bootstrap
+  bootstrap,
+  jwt
 } from '../assets/assets';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -32,6 +33,7 @@ const languageInfo = {
   MySQL: "Classic relational database. Solid & dependable. 🗃️",
   HTML5: "The structure of every web page. Like bones. 🦴",
   'Express.js': "Minimal backend with max performance. ⚙️",
+  jwt: "Secure token-based authentication. Keep it secret, keep it safe. 🔐",
   Redux: "Global state control. Great power, great responsibility. 🧠",
   Git: "Version control savior. Mistakes? Rewind time. 🕰️",
   GSAP: "Smooth animations like butter. GreenSock rocks. 🐸",
@@ -56,6 +58,7 @@ const Languages = () => {
     { name: 'MySQL', img: mysql },
     { name: 'HTML5', img: html },
     { name: 'Express.js', img: express },
+    { name: 'JWT', img: jwt },
     { name: 'Redux', img: redux },
     { name: 'Git', img: git },
     { name: 'GSAP', img: gsape },

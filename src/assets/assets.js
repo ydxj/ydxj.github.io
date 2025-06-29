@@ -18,6 +18,7 @@ import laravel from './tech/Laravel.png'
 import python from './tech/python.png'
 import php from './tech/PHP.png'
 import bootstrap from './tech/Bootstrap.png'
+import jwt from './tech/JWT.png'
 
 
 
@@ -41,5 +42,6 @@ export {
     laravel,
     python,
     php,
-    bootstrap
+    bootstrap,
+    jwt
 }
