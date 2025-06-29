@@ -33,7 +33,7 @@ const languageInfo = {
   MySQL: "Classic relational database. Solid & dependable. 🗃️",
   HTML5: "The structure of every web page. Like bones. 🦴",
   'Express.js': "Minimal backend with max performance. ⚙️",
-  jwt: "Secure token-based authentication. Keep it secret, keep it safe. 🔐",
+  JWT: "Secure token-based authentication. Keep it secret, keep it safe. 🔐",
   Redux: "Global state control. Great power, great responsibility. 🧠",
   Git: "Version control savior. Mistakes? Rewind time. 🕰️",
   GSAP: "Smooth animations like butter. GreenSock rocks. 🐸",
