@@ -1,6 +1,7 @@
 import orgaspace from './Project/Orgaspace.png'
 import elearning from './Project/elearning.png'
 import onetask from './Project/onetask.png'
+import webEcommerce from './Project/WebEcommerce.png'
 import javascript from './tech/javascript.png'
 import css from './tech/css.png'
 import express from './tech/express.png'
@@ -26,6 +27,7 @@ export {
     orgaspace,
     elearning,
     onetask,
+    webEcommerce,
     javascript,
     css,
     express,

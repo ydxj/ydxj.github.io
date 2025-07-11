@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { FaGithub } from 'react-icons/fa';
-import {onetask,orgaspace,elearning} from '../assets/assets.js'
+import {onetask,orgaspace,elearning,webEcommerce} from '../assets/assets.js'
 
 const Projects = () => {
   const cardsRef = useRef([]);
@@ -45,6 +45,14 @@ const Projects = () => {
       link: 'https://github.com/ydxj/site-web-formation',
       tags: ['#React', '#CSS', '#Bootstrap', '#NodeJs', '#Express','#MySQL'],
       image: elearning,
+    },
+    {
+      title: 'Web E-commerce',
+      description:
+        'A full-stack e-commerce web application for buyers and sellers built with React, Node.js, and MySQL, featuring product listings, shopping cart, orders, and role-based dashboards.',
+      link: 'https://github.com/ydxj/site-web-formation',
+      tags: ['#React', '#GSAP', '#ReactRouterDom', '#Axios', '#NodeJS', '#Express', '#JWT', '#Bcrypt', '#MySQL', '#OpenSource'],
+      image: webEcommerce,
     },
   ];
 
