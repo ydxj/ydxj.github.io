@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.ad4bbdcc.css",
-    "main.js": "/static/js/main.021fb7e6.js",
+    "main.js": "/static/js/main.0c8ff252.js",
     "static/js/453.c2508f5d.chunk.js": "/static/js/453.c2508f5d.chunk.js",
     "static/media/elearning.png": "/static/media/elearning.12afbf9dc314f7bf6484.png",
     "static/media/Orgaspace.png": "/static/media/Orgaspace.0f88fa9864bf5cfb488f.png",
+    "static/media/WebEcommerce.png": "/static/media/WebEcommerce.96d6c10fad35f5014099.png",
     "static/media/gsap.png": "/static/media/gsap.c9563dfc35d43642602e.png",
     "static/media/onetask.png": "/static/media/onetask.92c6f55bb30614ed31bd.png",
     "static/media/Laravel.png": "/static/media/Laravel.fa3cb5e326ff4816dd44.png",
@@ -16,11 +17,11 @@
     "static/media/mysql.png": "/static/media/mysql.17ec01314179e9a8ab58.png",
     "index.html": "/index.html",
     "main.ad4bbdcc.css.map": "/static/css/main.ad4bbdcc.css.map",
-    "main.021fb7e6.js.map": "/static/js/main.021fb7e6.js.map",
+    "main.0c8ff252.js.map": "/static/js/main.0c8ff252.js.map",
     "453.c2508f5d.chunk.js.map": "/static/js/453.c2508f5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ad4bbdcc.css",
-    "static/js/main.021fb7e6.js"
+    "static/js/main.0c8ff252.js"
   ]
 }
