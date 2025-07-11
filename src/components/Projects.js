@@ -50,7 +50,7 @@ const Projects = () => {
       title: 'Web E-commerce',
       description:
         'A full-stack e-commerce web application for buyers and sellers built with React, Node.js, and MySQL, featuring product listings, shopping cart, orders, and role-based dashboards.',
-      link: 'https://github.com/ydxj/site-web-formation',
+      link: 'https://github.com/ydxj/webEcommerce',
       tags: ['#React', '#GSAP', '#ReactRouterDom', '#Axios', '#NodeJS', '#Express', '#JWT', '#Bcrypt', '#MySQL', '#OpenSource'],
       image: webEcommerce,
     },
