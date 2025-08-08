@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { resume } from '../assets/assets';
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -33,6 +34,9 @@ const Hero = () => {
         </p>
         <a href="#projects" className="btn btn-outline-light mt-4 gsap-text">
           View My Work
+        </a>
+        <a href={resume} className="btn btn-outline-light mt-4 gsap-text">
+          Download my cv
         </a>
       </div>
     </section>

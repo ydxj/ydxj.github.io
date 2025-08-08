@@ -21,6 +21,8 @@ import php from './tech/PHP.png'
 import bootstrap from './tech/Bootstrap.png'
 import jwt from './tech/JWT.png'
 
+import resume from './resume/Cv de Omar Zerhouni.pdf'
+
 
 
 export {
@@ -45,5 +47,6 @@ export {
     python,
     php,
     bootstrap,
-    jwt
+    jwt,
+    resume
 }
