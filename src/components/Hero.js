@@ -25,20 +25,46 @@ const Hero = () => {
     <section
       ref={heroRef}
       className="d-flex align-items-center justify-content-center min-vh-100 bg-dark text-white text-center"
-      id='hero'
+      id="hero"
     >
       <div className="container">
         <h1 className="display-4 fw-bold gsap-text">Hi, I'm Omar 👋</h1>
         <p className="lead text-secondary gsap-text">
           A Full-Stack Developer crafting beautiful, seamless web experiences
-        </p>
-        <a href="#projects" className="btn btn-outline-light mt-4 gsap-text">
-          View My Work
-        </a>
-        <a href={resume} className="btn btn-outline-light mt-4 gsap-text">
-          Download my cv
-        </a>
+        </p> 
+        <div className="d-flex justify-content-center gap-3 flex-wrap gsap-text">
+          <a
+            href="#projects"
+            className="btn btn-primary px-4 py-2 fw-semibold rounded-pill shadow-sm hero-btn"
+          >
+            🚀 View My Work
+          </a>
+          <a
+            href={resume}
+            className="btn btn-outline-light px-4 py-2 fw-semibold rounded-pill shadow-sm hero-btn"
+          >
+            📄 Download CV
+          </a>
+        </div>
       </div>
+
+      {/* Extra styling for hover effects */}
+      <style jsx>{`
+        .hero-btn {
+          transition: all 0.3s ease;
+        }
+        .hero-btn:hover {
+          transform: translateY(-3px) scale(1.03);
+          box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+        }
+        .btn-primary {
+          background: linear-gradient(135deg, #4e9af1, #2563eb);
+          border: none;
+        }
+        .btn-primary:hover {
+          background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+      `}</style>
     </section>
   );
 };
