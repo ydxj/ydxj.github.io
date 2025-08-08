@@ -41,6 +41,7 @@ const Hero = () => {
           </a>
           <a
             href={resume}
+            download={true}
             className="btn btn-outline-light px-4 py-2 fw-semibold rounded-pill shadow-sm hero-btn"
           >
             📄 Download CV
