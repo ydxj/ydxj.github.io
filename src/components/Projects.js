@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { FaGithub } from 'react-icons/fa';
-import {onetask,orgaspace,elearning,webEcommerce} from '../assets/assets.js'
+import {onetask,orgaspace,elearning,webEcommerce,nourbannat} from '../assets/assets.js'
 
 const Projects = () => {
   const cardsRef = useRef([]);
@@ -53,6 +53,14 @@ const Projects = () => {
       link: 'https://github.com/ydxj/webEcommerce',
       tags: ['#React', '#GSAP', '#ReactRouterDom', '#Axios', '#NodeJS', '#Express', '#JWT', '#Bcrypt', '#MySQL', '#OpenSource'],
       image: webEcommerce,
+    },
+    {
+      title: 'Ecommerce Website',
+      description:
+        'E-commerce web application for buyers and sellers built with Wordpress, WooCommerce, and other plugins.',
+      link: 'https://noorbannat.com',
+      tags: ['#Wordpress', '#WooCommerce', '#PHP', '#CSS', '#MySQL'],
+      image: nourbannat,
     },
   ];
 
