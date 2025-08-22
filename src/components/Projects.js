@@ -58,7 +58,7 @@ const Projects = () => {
       title: 'Ecommerce Website',
       description:
         'E-commerce web application for buyers and sellers built with Wordpress, WooCommerce, and other plugins.',
-      link: 'https://noorbannat.com',
+      link: 'https://nourbannat.com/',
       tags: ['#Wordpress', '#WooCommerce', '#PHP', '#CSS', '#MySQL'],
       image: nourbannat,
     },
