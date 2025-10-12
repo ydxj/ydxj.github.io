@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ad4bbdcc.css",
-    "main.js": "/static/js/main.a5febebd.js",
+    "main.js": "/static/js/main.099c76a7.js",
     "static/js/453.c2508f5d.chunk.js": "/static/js/453.c2508f5d.chunk.js",
     "static/media/nourbannat.png": "/static/media/nourbannat.4a5ce2c862513bc766fb.png",
     "static/media/elearning.png": "/static/media/elearning.12afbf9dc314f7bf6484.png",
@@ -9,7 +9,7 @@
     "static/media/WebEcommerce.png": "/static/media/WebEcommerce.96d6c10fad35f5014099.png",
     "static/media/gsap.png": "/static/media/gsap.c9563dfc35d43642602e.png",
     "static/media/onetask.png": "/static/media/onetask.92c6f55bb30614ed31bd.png",
-    "static/media/Cv de Omar Zerhouni.pdf": "/static/media/Cv de Omar Zerhouni.d9e2380e1ef50c3d6e39.pdf",
+    "static/media/Cv de Omar Zerhouni.pdf": "/static/media/Cv de Omar Zerhouni.15578276815c69a82966.pdf",
     "static/media/Laravel.png": "/static/media/Laravel.fa3cb5e326ff4816dd44.png",
     "static/media/PHP.png": "/static/media/PHP.9c6195d345b8cf71d064.png",
     "static/media/express.png": "/static/media/express.f53f212d0d010d54c095.png",
@@ -19,11 +19,11 @@
     "static/media/mysql.png": "/static/media/mysql.17ec01314179e9a8ab58.png",
     "index.html": "/index.html",
     "main.ad4bbdcc.css.map": "/static/css/main.ad4bbdcc.css.map",
-    "main.a5febebd.js.map": "/static/js/main.a5febebd.js.map",
+    "main.099c76a7.js.map": "/static/js/main.099c76a7.js.map",
     "453.c2508f5d.chunk.js.map": "/static/js/453.c2508f5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ad4bbdcc.css",
-    "static/js/main.a5febebd.js"
+    "static/js/main.099c76a7.js"
   ]
 }
