@@ -82,23 +82,23 @@ const Projects = () => {
             >
               <div className="project-card h-100 shadow-lg">
                 <div className="project-media" style={{ backgroundImage: `url(${project.image})` }} />
-                <div className="p-3 d-flex flex-column h-100">
+                <div className="d-flex flex-column h-100">
                   <div>
-                    <div className="d-flex justify-content-between align-items-center mb-1">
-                      <h5 className="mb-0">{project.title}</h5>
+                    <div className="d-flex justify-content-between align-items-start mb-2">
+                      <h5 className="mb-0" style={{ fontSize: '1.1rem', fontWeight: 700 }}>{project.title}</h5>
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white"
-                        style={{ fontSize: '1.3rem' }}
+                        style={{ fontSize: '1.2rem', flexShrink: 0, marginLeft: '8px' }}
                       >
                         <FaGithub />
                       </a>
                     </div>
-                    <p className="text-muted small mb-2">{project.description}</p>
+                    <p className="text-muted mb-0" style={{ fontSize: '0.9rem', lineHeight: 1.4 }}>{project.description}</p>
                   </div>
-                  <div className="mt-auto d-flex flex-wrap gap-2">
+                  <div className="mt-auto d-flex flex-wrap gap-2" style={{ paddingTop: '12px' }}>
                     {project.tags.map((tag, i) => (
                       <span key={i} className="tag">{tag}</span>
                     ))}
