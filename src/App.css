@@ -119,6 +119,7 @@
   color: #f7fbff;
   padding: 120px 0;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-title { line-height: 1.1; }
