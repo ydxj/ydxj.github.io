@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { FaBolt, FaCloudUploadAlt, FaBug, FaCheckCircle, FaServer, FaNetworkWired } from 'react-icons/fa';
+import { FaBolt, FaCloudUploadAlt, FaBug, FaCheckCircle } from 'react-icons/fa';
 
 const commands = [
   {
@@ -53,15 +53,6 @@ const commands = [
     stats: { progress: '5%', eta: '4.2h', confidence: '99.8%' },
   },
 ];
-
-const NetworkNode = ({ x, y, accent, delay }) => {
-  return (
-    <g>
-      <circle cx={x} cy={y} r="4" fill={accent} opacity="0.8" />
-      <circle cx={x} cy={y} r="8" fill={accent} opacity="0" className="node-pulse" style={{ animationDelay: `${delay}s` }} />
-    </g>
-  );
-};
 
 const InteractiveLab = () => {
   const [active, setActive] = useState(0);
@@ -241,21 +232,24 @@ const InteractiveLab = () => {
             </div>
 
             {/* Network Visualization */}
-            <div className="lab-network" style={{ borderColor: current.accent }}>
-              <FaNetworkWired className="lab-network-icon" style={{ color: current.accent }} />
-              <svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet">
-                {/* Connection lines */}
-                <line x1="30" y1="60" x2="270" y2="60" stroke={current.accent} strokeWidth="0.5" opacity="0.3" />
-                <line x1="30" y1="40" x2="150" y2="100" stroke={current.accent} strokeWidth="0.5" opacity="0.3" />
-                <line x1="150" y1="100" x2="270" y2="40" stroke={current.accent} strokeWidth="0.5" opacity="0.3" />
-
-                {/* Network nodes */}
-                <NetworkNode x="30" y="60" accent={current.accent} delay="0" />
-                <NetworkNode x="100" y="40" accent={current.accent} delay="0.3" />
-                <NetworkNode x="150" y="100" accent={current.accent} delay="0.6" />
-                <NetworkNode x="220" y="30" accent={current.accent} delay="0.2" />
-                <NetworkNode x="270" y="60" accent={current.accent} delay="0.4" />
-              </svg>
+            <div className="lab-network lab-terminal-output" style={{ borderColor: current.accent }}>
+              <div className="lab-terminal-header" style={{ borderBottomColor: current.accent }}>
+                <span style={{ color: current.accent }}>$ Live Output Stream</span>
+              </div>
+              <div className="lab-terminal-content">
+                {current.lines.map((line, i) => (
+                  <div key={i} className="lab-terminal-line" style={{ '--line-color': current.accent }}>
+                    <span className="lab-terminal-prefix">›</span>
+                    <span className="lab-terminal-text">{line}</span>
+                    <span className="lab-terminal-checkmark" style={{ color: current.accent }}>✓</span>
+                  </div>
+                ))}
+                {/* Live cursor */}
+                <div className="lab-terminal-line lab-terminal-active">
+                  <span className="lab-terminal-prefix" style={{ color: current.accent }}>›</span>
+                  <span className="lab-terminal-cursor" style={{ borderColor: current.accent }}>_</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
