@@ -162,6 +162,98 @@
 
 .hero-card, .hero-graph, .hero-metrics { position: relative; z-index: 1; }
 
+.hero-showcase {
+  position: relative;
+  background: rgba(10,15,26,0.9);
+  border: 1px solid rgba(96,165,250,0.25);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(96,165,250,0.15);
+  background: rgba(255,255,255,0.02);
+}
+
+.showcase-header .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.red { background: #f87171; }
+.dot.yellow { background: #fbbf24; }
+.dot.green { background: #34d399; }
+
+.showcase-body {
+  padding: 16px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  flex-grow: 1;
+  line-height: 1.8;
+}
+
+.code-line {
+  padding: 2px 0;
+  position: relative;
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.code-line:nth-child(1) { animation-delay: 0.1s; }
+.code-line:nth-child(2) { animation-delay: 0.2s; }
+.code-line:nth-child(3) { animation-delay: 0.3s; }
+.code-line:nth-child(4) { animation-delay: 0.4s; }
+.code-line:nth-child(5) { animation-delay: 0.5s; }
+.code-line:nth-child(6) { animation-delay: 0.6s; }
+.code-line:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.code-line.indent-1 { padding-left: 20px; }
+
+.keyword { color: #f97316; font-weight: 600; }
+.variable { color: #60a5fa; }
+.prop { color: #a78bfa; }
+.string { color: #34d399; }
+
+.showcase-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  padding: 0;
+  margin-top: auto;
+  border-top: 1px solid rgba(96,165,250,0.15);
+  background: rgba(96,165,250,0.08);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px;
+  text-align: center;
+  border-right: 1px solid rgba(96,165,250,0.1);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-label { font-size: 0.75rem; color: #9fb2d2; text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-value { font-size: 1.2rem; font-weight: 700; color: #60a5fa; }
+
 .about-card {
   background: #fff;
   border-radius: 14px;

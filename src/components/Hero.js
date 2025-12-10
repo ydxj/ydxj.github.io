@@ -52,26 +52,47 @@ const Hero = () => {
 
           <div className="col-lg-5 hero-stagger">
             <div className="hero-glow" />
-            <div className="hero-card shadow-lg">
-              <div className="hero-graph">
-                <div className="bar" style={{ height: '70%' }} />
-                <div className="bar" style={{ height: '55%' }} />
-                <div className="bar" style={{ height: '90%' }} />
-                <div className="bar" style={{ height: '62%' }} />
-                <div className="bar" style={{ height: '80%' }} />
+            <div className="hero-showcase shadow-lg">
+              <div className="showcase-header">
+                <span className="dot red" />
+                <span className="dot yellow" />
+                <span className="dot green" />
               </div>
-              <div className="hero-metrics">
-                <div className="metric">
-                  <span className="label">Latency</span>
-                  <span className="value">132 ms</span>
+              <div className="showcase-body">
+                <div className="code-line">
+                  <span className="keyword">const</span> <span className="variable">portfolio</span> = {'{'}
                 </div>
-                <div className="metric">
-                  <span className="label">Uptime</span>
-                  <span className="value">99.97%</span>
+                <div className="code-line indent-1">
+                  <span className="prop">fullStack</span>: <span className="string">'React + Node'</span>,
                 </div>
-                <div className="metric">
-                  <span className="label">Deploys</span>
-                  <span className="value">250+/yr</span>
+                <div className="code-line indent-1">
+                  <span className="prop">experience</span>: <span className="string">'3+ years'</span>,
+                </div>
+                <div className="code-line indent-1">
+                  <span className="prop">worldSkills</span>: <span className="string">'Top 3 National'</span>,
+                </div>
+                <div className="code-line indent-1">
+                  <span className="prop">mission</span>: <span className="string">'Ship fast & reliable'</span>,
+                </div>
+                <div className="code-line">
+                  {'}'};
+                </div>
+                <div className="code-line mt-3">
+                  <span className="keyword">await</span> <span className="variable">buildAwesome</span>();
+                </div>
+              </div>
+              <div className="showcase-stats">
+                <div className="stat-item">
+                  <span className="stat-label">Projects</span>
+                  <span className="stat-value">5+</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-label">Stack</span>
+                  <span className="stat-value">8+</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-label">Performance</span>
+                  <span className="stat-value">95+</span>
                 </div>
               </div>
             </div>
