@@ -67,6 +67,24 @@
   font-weight: 700;
 }
 
+.hero-shell .text-muted {
+  color: #a0aabc !important;
+}
+
+.shell-dark .text-muted {
+  color: #a0aabc !important;
+}
+
+.shell-light.about-shell .text-muted {
+  color: #a0aabc !important;
+}
+
+.text-muted {
+  color: #a0aabc !important;
+}
+
+
+
 .chip {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.12);
