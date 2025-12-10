@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="container-lg">
         <div className="row align-items-center g-5">
           <div className="col-lg-7">
-            <p className="eyebrow hero-stagger">Full-Stack · WorldSkills Top 3</p>
+            <p className="eyebrow hero-stagger">Zerhouni Omar · Full-Stack · WorldSkills Top 3</p>
             <h1 className="display-4 fw-bold hero-title hero-stagger">
               I ship fast, resilient products end-to-end.
             </h1>
@@ -63,10 +63,13 @@ const Hero = () => {
                   <span className="keyword">const</span> <span className="variable">portfolio</span> = {'{'}
                 </div>
                 <div className="code-line indent-1">
+                  <span className="prop">Name</span>: <span className="string">'Zerhouni Omar'</span>,
+                </div>
+                <div className="code-line indent-1">
                   <span className="prop">fullStack</span>: <span className="string">'React + Node'</span>,
                 </div>
                 <div className="code-line indent-1">
-                  <span className="prop">experience</span>: <span className="string">'3+ years'</span>,
+                  <span className="prop">experience</span>: <span className="string">'2+ years'</span>,
                 </div>
                 <div className="code-line indent-1">
                   <span className="prop">worldSkills</span>: <span className="string">'Top 3 National'</span>,
