@@ -1,3 +1,4 @@
+import './App.css';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -5,6 +6,8 @@ import Hero from './components/Hero';
 import Languages from './components/Languages';
 import Navbar from './components/NavBar';
 import Projects from './components/Projects';
+import Journey from './components/Journey';
+import InteractiveLab from './components/InteractiveLab';
 
 function App() {
   return (
@@ -12,6 +15,8 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <Journey />
+      <InteractiveLab />
       <Languages />
       <Projects />
       <Contact />

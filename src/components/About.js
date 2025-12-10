@@ -13,36 +13,43 @@ const About = () => {
   }, []);
 
   return (
-    <section
-      ref={aboutRef}
-      className="bg-light text-dark py-5"
-      id="about"
-    >
-      <div className="container">
-        <h2 className="text-center fw-bold mb-4">About Me</h2>
-        <div className="row justify-content-center">
-          <div className="col-md-8 text-center">
-            <p>
-              I’m a passionate full-stack developer from Morocco, specializing in building responsive,
-              interactive, and visually engaging web applications.
-              With a solid command of both frontend and backend technologies,
-              I craft seamless digital experiences from concept to deployment.
+    <section ref={aboutRef} className="section shell-light" id="about">
+      <div className="container-lg">
+        <div className="row g-4 align-items-center">
+          <div className="col-lg-6">
+            <p className="eyebrow">About</p>
+            <h2 className="fw-bold mb-3">Full-stack builder with competition-grade rigor.</h2>
+            <p className="text-muted mb-3">
+              Full-stack developer based in Morocco, Top 3 nationally at WorldSkills Web Technologies (1st in the Oriental region).
+              I craft responsive interfaces and robust backends that hold up under pressure.
             </p>
-            <p>
-              On the frontend, I work extensively with React, Bootstrap, GSAP,
-              and other modern libraries to create fast, elegant, and user-friendly interfaces.
-              On the backend, I build scalable, secure, and efficient APIs and services using technologies like Node.js,
-              Express.js, MongoDB, MySQL, and PostgreSQL.
+            <p className="text-muted mb-3">
+              Go-to stack: React.js + GSAP for UX, Node.js/Express or PHP/Laravel for APIs, MySQL & MongoDB for data,
+              and CI/CD to ship fast and safely.
             </p>
-            <p>
-              I love bringing design ideas to life and ensuring they’re backed by robust,
-              well-architected systems. Whether I’m refining UI animations or optimizing backend performance, 
-              I take pride in writing clean, maintainable code and staying current with the latest in web development.
+            <p className="text-muted mb-4">
+              I thrive under tight timelines, measure performance (Lighthouse, p95), and document both user journeys and team workflows.
             </p>
-            <p>
-              Always learning, always building — my goal is to deliver experiences that are not just functional, 
-              but memorable.
-            </p>
+            <div className="d-flex gap-3 flex-wrap">
+              <div className="pill">Full Stack JS/PHP</div>
+              <div className="pill">APIs & Auth</div>
+              <div className="pill">Responsive UX</div>
+              <div className="pill">Perf & QA</div>
+            </div>
+          </div>
+          <div className="col-lg-6">
+            <div className="about-card shadow-lg">
+              <div className="d-flex justify-content-between mb-3">
+                <span className="badge bg-dark-subtle text-dark fw-semibold">Delivery</span>
+                <span className="text-muted">Recent impact</span>
+              </div>
+              <ul className="list-unstyled mb-0">
+                <li className="about-list">Top 3 national – WorldSkills Web Technologies 2025 (1st Oriental region).</li>
+                <li className="about-list">Internship at CHU Oujda: internal training site + user support.</li>
+                <li className="about-list">Front: React/GSAP · Back: Node.js/Laravel with auth and REST APIs.</li>
+                <li className="about-list">Key certs (2025): Node.js, React Auth, Python, Full-Stack Bootcamp.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

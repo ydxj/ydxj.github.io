@@ -96,14 +96,12 @@ const Languages = () => {
   };
 
   return (
-    <section className="bg-dark text-white py-5" ref={langRef} id="Languages">
-      <div className="container text-center">
-        <h2 className="mb-5 fw-bold display-5">Languages & Technologies</h2>
+    <section className="section shell-dark py-5" ref={langRef} id="Languages">
+      <div className="container-lg text-center">
+        <p className="eyebrow">Toolkit</p>
+        <h2 className="fw-bold text-gradient mb-4">Languages & Technologies</h2>
 
-        <div
-          className="row g-4 justify-content-center"
-          style={{ maxWidth: '1000px', margin: '0 auto' }}
-        >
+        <div className="row g-3 justify-content-center" style={{ maxWidth: '1100px', margin: '0 auto' }}>
           {languages.map((lang, i) => (
             <div
               key={i}
@@ -113,23 +111,16 @@ const Languages = () => {
             >
               <div className={`flip-box ${flipped[lang.name] ? 'flipped' : ''}`}>
                 <div className="flip-inner">
-                  {/* Front */}
-                  <div className="flip-front p-3 rounded shadow text-center lang-box">
+                  <div className="flip-front p-3 rounded lang-box">
                     <img
                       src={lang.img}
                       alt={lang.name}
                       className="img-fluid"
-                      style={{
-                        height: '60px',
-                        objectFit: 'contain',
-                        marginBottom: '10px',
-                        filter: 'drop-shadow(0 0 5px rgba(0, 255, 255, 0.3))',
-                      }}
+                      style={{ height: '60px', objectFit: 'contain', marginBottom: '10px' }}
                     />
-                    <p style={{ fontSize: '0.85rem', margin: 0 }}>{lang.name}</p>
+                    <p className="mb-0" style={{ fontSize: '0.9rem' }}>{lang.name}</p>
                   </div>
-                  {/* Back */}
-                  <div className="flip-back p-3 rounded shadow text-center">
+                  <div className="flip-back p-3 rounded">
                     <p className="mb-0" style={{ fontSize: '0.8rem' }}>
                       {languageInfo[lang.name]}
                     </p>
@@ -142,45 +133,24 @@ const Languages = () => {
       </div>
 
       <style>{`
-        .flip-box {
-          width: 100%;
-          height: 120px;
-          position: relative;
-        }
-
-        .flip-inner {
-          width: 100%;
-          height: 100%;
-          transition: transform 0.6s;
-          transform-style: preserve-3d;
-          position: relative;
-        }
-
-        .flip-box.flipped .flip-inner {
-          transform: rotateY(180deg);
-        }
-
+        .flip-box { width: 100%; height: 130px; position: relative; }
+        .flip-inner { width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
+        .flip-box.flipped .flip-inner { transform: rotateY(180deg); }
         .flip-front, .flip-back {
           position: absolute;
           width: 100%;
           height: 100%;
           backface-visibility: hidden;
-          border: 1px solid #333;
-          background: #1e1e1e;
+          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.02);
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
-
-        .flip-back {
-          background: #2b2b2b;
-          transform: rotateY(180deg);
-        }
-
-        .lang-box:hover {
-          box-shadow: 0 0 20px rgba(0,255,255,0.3), 0 0 5px rgba(255,255,255,0.1) inset;
-        }
+        .flip-back { transform: rotateY(180deg); background: rgba(0,0,0,0.35); }
+        .lang-box:hover { box-shadow: 0 0 20px rgba(96,165,250,0.4), 0 0 8px rgba(255,255,255,0.05) inset; }
       `}</style>
     </section>
   );

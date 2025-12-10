@@ -65,52 +65,43 @@ const Projects = () => {
   ];
 
   return (
-    <section className="bg-dark text-white py-5" id="projects">
-      <div className="container">
-        <h2 className="text-center fw-bold mb-5">Projects</h2>
-        <div className="row">
+    <section className="section shell-dark py-5" id="projects">
+      <div className="container-lg">
+        <div className="text-center mb-5">
+          <p className="eyebrow">Recent Work</p>
+          <h2 className="fw-bold text-gradient">Projects</h2>
+          <p className="text-muted">Production-minded builds with clean UIs, dependable APIs, and measurable impact.</p>
+        </div>
+
+        <div className="row g-4">
           {projectList.map((project, index) => (
             <div
-              className="col-md-4 mb-4"
+              className="col-md-6 col-lg-4"
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
             >
-              <div
-                className="card bg-secondary text-white border-0 shadow h-100 project-card"
-                style={{ transition: 'transform 0.3s ease' }}
-              >
-                <img
-                  src={project.image}
-                  alt={`${project.title} preview`}
-                  className="card-img-top"
-                  style={{ height: '180px', objectFit: 'cover' }}
-                />
-                <div className="card-body d-flex flex-column justify-content-between">
+              <div className="project-card h-100 shadow-lg">
+                <div className="project-media" style={{ backgroundImage: `url(${project.image})` }} />
+                <div className="p-3 d-flex flex-column h-100">
                   <div>
-                    <h5 className="card-title">{project.title}</h5>
-                    <p className="card-text">{project.description}</p>
-                    <div className="tags mt-3">
-                      {project.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="badge bg-dark me-2 mb-2"
-                          style={{ fontSize: '0.8rem' }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    <div className="d-flex justify-content-between align-items-center mb-1">
+                      <h5 className="mb-0">{project.title}</h5>
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white"
+                        style={{ fontSize: '1.3rem' }}
+                      >
+                        <FaGithub />
+                      </a>
                     </div>
+                    <p className="text-muted small mb-2">{project.description}</p>
                   </div>
-                  <div className="mt-4 text-end">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white"
-                      style={{ fontSize: '1.5rem' }}
-                    >
-                      <FaGithub className="github-icon" />
-                    </a>
+                  <div className="mt-auto d-flex flex-wrap gap-2">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="tag">{tag}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -118,19 +109,6 @@ const Projects = () => {
           ))}
         </div>
       </div>
-
-      {/* Extra styling */}
-      <style>{`
-        .project-card:hover {
-          transform: perspective(1000px) rotateY(5deg) scale(1.03);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-        }
-        .github-icon:hover {
-          color: #ccc;
-          transform: scale(1.1);
-          transition: 0.2s;
-        }
-      `}</style>
     </section>
   );
 };

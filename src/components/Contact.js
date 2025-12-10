@@ -40,12 +40,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-5 bg-dark text-light">
-      <div className="container">
-        <h2 className="text-center fw-bold mb-5">Let's Work Together</h2>
+    <section id="contact" className="section shell-dark py-5">
+      <div className="container-lg">
+        <div className="text-center mb-4">
+          <p className="eyebrow">Let’s Talk</p>
+          <h2 className="fw-bold text-gradient">Build something together</h2>
+          <p className="text-muted">Tell me about your product, team, or the problem you need solved.</p>
+        </div>
         <div className="row justify-content-center">
           <div className="col-md-8">
-            <div ref={cardRef} className="bg-light text-dark p-4 rounded shadow-lg">
+            <div ref={cardRef} className="contact-card shadow-lg">
               <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label className="form-label">Full Name</label>
@@ -59,7 +63,7 @@ const Contact = () => {
                   <label className="form-label">Message</label>
                   <textarea name="message" className="form-control" rows="5" required></textarea>
                 </div>
-                <button className="btn btn-dark w-100">Send Message</button>
+                <button className="btn btn-primary w-100">Send Message</button>
                 {status && <p className="mt-3 text-success text-center">{status}</p>}
               </form>
             </div>
