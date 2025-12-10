@@ -57,9 +57,13 @@ const commands = [
 const InteractiveLab = () => {
   const [active, setActive] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
+  const [visibleLines, setVisibleLines] = useState([]);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [lineCharIndex, setLineCharIndex] = useState(0);
   const codeRef = useRef(null);
   const containerRef = useRef(null);
   const textIndexRef = useRef(0);
+  const terminalRef = useRef(null);
 
   const current = commands[active];
 
@@ -83,7 +87,46 @@ const InteractiveLab = () => {
   useEffect(() => {
     textIndexRef.current = 0;
     setDisplayedText('');
+    setVisibleLines([]);
+    setCurrentLineIndex(0);
+    setLineCharIndex(0);
   }, [active]);
+
+  // Terminal line-by-line execution effect
+  useEffect(() => {
+    if (currentLineIndex > current.lines.length) return;
+
+    const delay = currentLineIndex === 0 ? 500 : 400; // Delay before starting next line
+    
+    const timeout = setTimeout(() => {
+      if (currentLineIndex < current.lines.length) {
+        const currentLine = current.lines[currentLineIndex];
+        
+        if (lineCharIndex < currentLine.length) {
+          // Typewriter effect for current line
+          setVisibleLines(prev => {
+            const updated = [...prev];
+            updated[currentLineIndex] = currentLine.substring(0, lineCharIndex + 1);
+            return updated;
+          });
+          setLineCharIndex(prev => prev + 1);
+        } else {
+          // Move to next line
+          setCurrentLineIndex(prev => prev + 1);
+          setLineCharIndex(0);
+        }
+      }
+    }, currentLineIndex === 0 && lineCharIndex === 0 ? 500 : 20);
+
+    return () => clearTimeout(timeout);
+  }, [currentLineIndex, lineCharIndex, current.lines]);
+
+  // Auto-scroll terminal to bottom
+  useEffect(() => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+    }
+  }, [visibleLines, currentLineIndex]);
 
   // GSAP animations
   useEffect(() => {
@@ -95,34 +138,6 @@ const InteractiveLab = () => {
         { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power3.out' }
       );
 
-      // Stagger lines with character reveal
-      const lines = codeRef.current?.querySelectorAll('.lab-line');
-      if (lines) {
-        gsap.fromTo(
-          lines,
-          { y: 15, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.4, stagger: 0.12, ease: 'power2.out' }
-        );
-
-        // Glow pulse for each line
-        lines.forEach((line, i) => {
-          gsap.to(line, {
-            textShadow: `0 0 20px ${current.accent}`,
-            duration: 1.2,
-            delay: i * 0.12 + 0.4,
-            ease: 'power1.inOut',
-          });
-        });
-      }
-
-      // Rotate network visualization
-      gsap.to('.lab-network svg', {
-        rotation: 360,
-        duration: 20,
-        repeat: -1,
-        ease: 'none',
-      });
-
       // Panel glow pulse
       gsap.to('.lab-panel-glow', {
         boxShadow: `0 0 60px ${current.accent}, inset 0 0 40px ${current.accentLight}`,
@@ -130,6 +145,13 @@ const InteractiveLab = () => {
         repeat: -1,
         yoyo: true,
         ease: 'sine.inOut',
+      });
+
+      // Glow effect on terminal when lines appear
+      gsap.to('.lab-terminal-output', {
+        boxShadow: `0 0 20px ${current.accent}40`,
+        duration: 0.6,
+        ease: 'power2.out',
       });
     }, containerRef);
 
@@ -232,23 +254,36 @@ const InteractiveLab = () => {
             </div>
 
             {/* Network Visualization */}
-            <div className="lab-network lab-terminal-output" style={{ borderColor: current.accent }}>
+            <div className="lab-network lab-terminal-output" style={{ borderColor: current.accent }} ref={terminalRef}>
               <div className="lab-terminal-header" style={{ borderBottomColor: current.accent }}>
-                <span style={{ color: current.accent }}>$ Live Output Stream</span>
+                <span style={{ color: current.accent }}>$ Zerhouni_Omar</span>
               </div>
               <div className="lab-terminal-content">
-                {current.lines.map((line, i) => (
-                  <div key={i} className="lab-terminal-line" style={{ '--line-color': current.accent }}>
+                {visibleLines.map((line, i) => (
+                  <div key={i} className="lab-terminal-line lab-terminal-executed" style={{ '--line-color': current.accent }}>
                     <span className="lab-terminal-prefix">›</span>
                     <span className="lab-terminal-text">{line}</span>
-                    <span className="lab-terminal-checkmark" style={{ color: current.accent }}>✓</span>
+                    {i < currentLineIndex && <span className="lab-terminal-checkmark" style={{ color: current.accent }}>✓</span>}
                   </div>
                 ))}
-                {/* Live cursor */}
-                <div className="lab-terminal-line lab-terminal-active">
-                  <span className="lab-terminal-prefix" style={{ color: current.accent }}>›</span>
-                  <span className="lab-terminal-cursor" style={{ borderColor: current.accent }}>_</span>
-                </div>
+                
+                {/* Current executing line */}
+                {currentLineIndex < current.lines.length && (
+                  <div className="lab-terminal-line lab-terminal-active" style={{ '--line-color': current.accent }}>
+                    <span className="lab-terminal-prefix" style={{ color: current.accent }}>›</span>
+                    <span className="lab-terminal-text">{visibleLines[currentLineIndex] || ''}</span>
+                    {visibleLines[currentLineIndex]?.length > 0 && <span className="lab-terminal-cursor" style={{ borderColor: current.accent }}>_</span>}
+                  </div>
+                )}
+
+                {/* Completion message */}
+                {currentLineIndex >= current.lines.length && visibleLines.length > 0 && (
+                  <div className="lab-terminal-line lab-terminal-complete" style={{ '--line-color': current.accent }}>
+                    <span className="lab-terminal-prefix" style={{ color: current.accent }}>$</span>
+                    <span className="lab-terminal-text" style={{ color: current.accent, fontWeight: 600 }}>Process completed successfully</span>
+                    <span className="lab-terminal-checkmark" style={{ color: current.accent }}>✓</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>

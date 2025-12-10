@@ -728,22 +728,26 @@
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  min-height: 200px;
+  min-height: 240px;
   backdrop-filter: blur(8px);
   overflow: hidden;
+  transition: all 0.4s ease;
 }
 
 .lab-terminal-output {
   font-family: 'JetBrains Mono', 'Courier New', monospace;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .lab-terminal-header {
-  padding: 12px 16px;
+  padding: 14px 16px;
   border-bottom: 1px solid;
-  background: rgba(255, 255, 255, 0.03);
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 .lab-terminal-content {
@@ -752,7 +756,25 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  max-height: 400px;
+}
+
+.lab-terminal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lab-terminal-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lab-terminal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.lab-terminal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .lab-terminal-line {
@@ -760,20 +782,29 @@
   align-items: center;
   gap: 8px;
   color: #a0aabc;
-  line-height: 1.5;
-  animation: fadeInLine 0.3s ease-out backwards;
+  min-height: 24px;
+  word-break: break-word;
 }
 
-.lab-terminal-line:nth-child(1) { animation-delay: 0s; }
-.lab-terminal-line:nth-child(2) { animation-delay: 0.1s; }
-.lab-terminal-line:nth-child(3) { animation-delay: 0.2s; }
-.lab-terminal-line:nth-child(4) { animation-delay: 0.3s; }
-.lab-terminal-line:nth-child(5) { animation-delay: 0.4s; }
+.lab-terminal-executed {
+  color: #a0aabc;
+  animation: lineAppear 0.3s ease-out;
+}
 
-@keyframes fadeInLine {
+.lab-terminal-active {
+  color: var(--line-color);
+  animation: lineGlow 1.2s ease-in-out infinite;
+}
+
+.lab-terminal-complete {
+  color: var(--line-color);
+  animation: completePulse 0.5s ease-out;
+}
+
+@keyframes lineAppear {
   from {
     opacity: 0;
-    transform: translateX(-10px);
+    transform: translateX(-8px);
   }
   to {
     opacity: 1;
@@ -781,58 +812,77 @@
   }
 }
 
+@keyframes lineGlow {
+  0%, 100% {
+    opacity: 0.7;
+    text-shadow: 0 0 0px var(--line-color);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 12px var(--line-color);
+  }
+}
+
+@keyframes completePulse {
+  0% {
+    opacity: 0;
+    transform: translateX(-8px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
 .lab-terminal-prefix {
   color: var(--line-color);
-  font-weight: 700;
-  min-width: 16px;
+  font-weight: 800;
+  min-width: 18px;
+  text-align: center;
+  letter-spacing: 2px;
 }
 
 .lab-terminal-text {
   flex: 1;
   color: #e8ecf5;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .lab-terminal-checkmark {
-  margin-left: 8px;
-  opacity: 0.7;
-  animation: checkPulse 0.5s ease-out;
+  margin-left: auto;
+  margin-right: 0;
+  min-width: 20px;
+  text-align: center;
+  font-weight: 700;
+  animation: checkAppear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes checkPulse {
+@keyframes checkAppear {
   0% {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0) rotate(-90deg);
   }
   100% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-}
-
-.lab-terminal-active {
-  color: var(--line-color);
-  animation: glow 1.5s ease-in-out infinite;
-}
-
-@keyframes glow {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
+    opacity: 0.9;
+    transform: scale(1) rotate(0deg);
   }
 }
 
 .lab-terminal-cursor {
   display: inline-block;
+  width: 10px;
   border-right: 2px solid;
-  padding-right: 4px;
-  animation: blink-cursor 0.7s infinite;
+  border-color: inherit;
+  padding-right: 2px;
+  animation: blink-cursor 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  height: 18px;
+  margin-left: 2px;
 }
 
 @keyframes blink-cursor {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.3; }
 }
 
 .lab-network svg {
