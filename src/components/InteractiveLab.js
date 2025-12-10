@@ -96,7 +96,7 @@ const InteractiveLab = () => {
   useEffect(() => {
     if (currentLineIndex > current.lines.length) return;
 
-    const delay = currentLineIndex === 0 ? 500 : 400; // Delay before starting next line
+    // const delay = currentLineIndex === 0 ? 500 : 400; // Delay before starting next line
     
     const timeout = setTimeout(() => {
       if (currentLineIndex < current.lines.length) {
