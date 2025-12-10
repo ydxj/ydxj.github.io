@@ -10,6 +10,43 @@
   color: #0b1221;
 }
 
+.shell-light.about-shell {
+  background: radial-gradient(circle at 20% 20%, rgba(96,165,250,0.08), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(168,85,247,0.1), transparent 25%),
+    #0b1221 !important;
+  color: #e8ecf5 !important;
+  border-top: none;
+  border-bottom: none;
+  padding: 96px 0;
+  position: relative;
+}
+
+.shell-light.about-shell::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 5%;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(96,165,250,0.2), transparent 65%);
+  filter: blur(14px);
+  z-index: 0;
+}
+
+.shell-light.about-shell::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 8%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(168,85,247,0.12), transparent 60%);
+  filter: blur(18px);
+  z-index: 0;
+}
+
+.shell-light.about-shell .container-lg { position: relative; z-index: 1; }
+
 .section {
   position: relative;
   overflow: hidden;
@@ -46,6 +83,13 @@
   border-radius: 999px;
   border: 1px solid rgba(12,18,32,0.08);
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.shell-light.about-shell .pill {
+  background: rgba(255,255,255,0.08);
+  color: #e9ecf5;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 .text-light-50 { color: rgba(255,255,255,0.7); }
@@ -106,6 +150,12 @@
   padding: 20px;
   border: 1px solid #e5e7eb;
   color: #0f172a;
+}
+
+.shell-light.about-shell .about-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #e8ecf5;
 }
 
 .about-list { padding: 10px 0; border-bottom: 1px solid #eef1f6; color: #475467; }

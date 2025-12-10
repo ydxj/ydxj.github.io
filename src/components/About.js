@@ -13,7 +13,7 @@ const About = () => {
   }, []);
 
   return (
-    <section ref={aboutRef} className="section shell-light" id="about">
+    <section ref={aboutRef} className="section shell-light about-shell" id="about">
       <div className="container-lg">
         <div className="row g-4 align-items-center">
           <div className="col-lg-6">
