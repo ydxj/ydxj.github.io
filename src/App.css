@@ -268,6 +268,126 @@
   color: #e8ecf5;
 }
 
+.about-showcase {
+  position: relative;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(96,165,250,0.2);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.showcase-title {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-accent {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #60a5fa;
+  background: rgba(96,165,250,0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(96,165,250,0.2);
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.achievement-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(96,165,250,0.15);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  background: rgba(96,165,250,0.08);
+  border-color: rgba(96,165,250,0.3);
+  transform: translateY(-2px);
+}
+
+.achievement-icon {
+  font-size: 1.8rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+.achievement-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e8ecf5;
+}
+
+.achievement-content p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #a0aabc;
+  line-height: 1.4;
+}
+
+.showcase-divider {
+  height: 1px;
+  background: rgba(96,165,250,0.1);
+  margin: 16px 0;
+}
+
+.skills-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skill-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e8ecf5;
+}
+
+.skill-bar {
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(96,165,250,0.1);
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #60a5fa, #a855f7);
+  border-radius: 999px;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-row:nth-child(1) .skill-fill { animation: fillBar 1s ease-out 0.2s both; }
+.skill-row:nth-child(2) .skill-fill { animation: fillBar 1s ease-out 0.4s both; }
+.skill-row:nth-child(3) .skill-fill { animation: fillBar 1s ease-out 0.6s both; }
+
+@keyframes fillBar {
+  from { width: 0 !important; }
+}
+
 .about-list { padding: 10px 0; border-bottom: 1px solid #eef1f6; color: #475467; }
 .about-list:last-child { border-bottom: none; }
 

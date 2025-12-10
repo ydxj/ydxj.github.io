@@ -38,17 +38,67 @@ const About = () => {
             </div>
           </div>
           <div className="col-lg-6">
-            <div className="about-card shadow-lg">
-              <div className="d-flex justify-content-between mb-3">
-                <span className="badge bg-dark-subtle text-dark fw-semibold">Delivery</span>
-                <span className="text-muted">Recent impact</span>
+            <div className="about-showcase shadow-lg">
+              <div className="showcase-title">
+                <span className="badge-accent">Highlights</span>
               </div>
-              <ul className="list-unstyled mb-0">
-                <li className="about-list">Top 3 national – WorldSkills Web Technologies 2025 (1st Oriental region).</li>
-                <li className="about-list">Internship at CHU Oujda: internal training site + user support.</li>
-                <li className="about-list">Front: React/GSAP · Back: Node.js/Laravel with auth and REST APIs.</li>
-                <li className="about-list">Key certs (2025): Node.js, React Auth, Python, Full-Stack Bootcamp.</li>
-              </ul>
+              
+              <div className="achievement-grid">
+                <div className="achievement-card">
+                  <div className="achievement-icon">🏆</div>
+                  <div className="achievement-content">
+                    <h4>WorldSkills Top 3</h4>
+                    <p>National ranking 2025, 1st Oriental region</p>
+                  </div>
+                </div>
+
+                <div className="achievement-card">
+                  <div className="achievement-icon">💼</div>
+                  <div className="achievement-content">
+                    <h4>CHU Oujda Internship</h4>
+                    <p>Training site + user support, live</p>
+                  </div>
+                </div>
+
+                <div className="achievement-card">
+                  <div className="achievement-icon">📚</div>
+                  <div className="achievement-content">
+                    <h4>4 Key Certs</h4>
+                    <p>Node.js, React, Python, Full-Stack (2025)</p>
+                  </div>
+                </div>
+
+                <div className="achievement-card">
+                  <div className="achievement-icon">⚡</div>
+                  <div className="achievement-content">
+                    <h4>Full-Stack Shipped</h4>
+                    <p>React/GSAP + Node/Laravel + SQL/NoSQL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="showcase-divider"></div>
+
+              <div className="skills-breakdown">
+                <div className="skill-row">
+                  <span className="skill-label">Frontend Mastery</span>
+                  <div className="skill-bar">
+                    <div className="skill-fill" style={{ width: '95%' }}></div>
+                  </div>
+                </div>
+                <div className="skill-row">
+                  <span className="skill-label">Backend Architecture</span>
+                  <div className="skill-bar">
+                    <div className="skill-fill" style={{ width: '92%' }}></div>
+                  </div>
+                </div>
+                <div className="skill-row">
+                  <span className="skill-label">Performance Optimization</span>
+                  <div className="skill-bar">
+                    <div className="skill-fill" style={{ width: '88%' }}></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
