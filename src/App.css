@@ -423,19 +423,331 @@
 .project-media { height: 180px; background-size: cover; background-position: center; filter: saturate(1.05); }
 .tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 999px; font-size: 0.8rem; color: #e8ecf5; }
 
-.lab-command { border: 1px solid transparent; background: rgba(255,255,255,0.05); color: #e8ecf5; padding: 10px 14px; border-radius: 10px; transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
-.lab-command:hover { transform: translateY(-2px); background: rgba(255,255,255,0.08); }
-.lab-command-active { border-color: rgba(255,255,255,0.2) !important; box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
-.lab-command-idle { opacity: 0.82; }
+/* New Advanced Lab Command Buttons */
+.lab-command-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #e8ecf5;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
 
-.lab-panel { border: 1px solid rgba(255,255,255,0.15); background: rgba(10,15,26,0.9); border-radius: 16px; overflow: hidden; backdrop-filter: blur(12px); }
-.lab-panel-header { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
-.lab-panel-header .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.dot.red { background: #f87171; }
-.dot.yellow { background: #fbbf24; }
-.dot.green { background: #34d399; }
-.lab-panel-body { padding: 16px; min-height: 180px; font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 0.95rem; color: #e5e7eb; }
-.lab-panel-body .line { padding: 8px 10px; margin-bottom: 6px; border-left: 3px solid rgba(96,165,250,0.5); background: rgba(255,255,255,0.02); border-radius: 8px; }
+.lab-command-btn:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.lab-command-btn-active {
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 30px var(--accent-light), inset 0 0 20px var(--accent-light);
+}
+
+.lab-btn-icon {
+  font-size: 1.2rem;
+  min-width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lab-command-btn-active .lab-btn-icon {
+  animation: iconPulse 1.5s ease-in-out infinite;
+}
+
+.lab-btn-content {
+  flex: 1;
+  text-align: left;
+}
+
+.lab-btn-label {
+  font-size: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.lab-btn-status {
+  font-size: 0.7rem;
+  color: #a0aabc;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.lab-command-btn-active .lab-btn-status {
+  color: var(--accent-color);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.lab-btn-pulse {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.lab-command-btn-active .lab-btn-pulse {
+  animation: dotPulse 1.5s ease-out infinite;
+}
+
+/* Enhanced Terminal Panel */
+.lab-panel-glow {
+  position: relative;
+  border: 2px solid;
+  background: linear-gradient(135deg, rgba(10, 15, 26, 0.95), rgba(20, 30, 48, 0.9));
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 50px rgba(96, 165, 250, 0.2), inset 0 0 30px rgba(96, 165, 250, 0.05);
+}
+
+.lab-panel-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.02), transparent);
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+.lab-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 2px solid;
+  background: rgba(255, 255, 255, 0.03);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 2;
+}
+
+.lab-header-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.dot.red {
+  background: #ef4444;
+  color: #ef4444;
+}
+
+.dot.yellow {
+  background: #eab308;
+  color: #eab308;
+}
+
+.dot.green {
+  background: #22c55e;
+  color: #22c55e;
+}
+
+.lab-header-title {
+  flex: 1;
+  color: #a0aabc;
+  letter-spacing: 0.05em;
+}
+
+.lab-cursor {
+  animation: cursorBlink 1s infinite;
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+/* Panel Body with Enhanced Lines */
+.lab-panel-body {
+  padding: 20px;
+  min-height: 150px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  position: relative;
+  z-index: 2;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.lab-panel-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lab-panel-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.lab-panel-body::-webkit-scrollbar-thumb {
+  background: rgba(96, 165, 250, 0.3);
+  border-radius: 3px;
+}
+
+.lab-panel-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(96, 165, 250, 0.5);
+}
+
+.lab-line {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-left: 4px solid;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.lab-line:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.lab-prefix {
+  color: #60a5fa;
+  font-weight: bold;
+  min-width: 20px;
+}
+
+.lab-success {
+  margin-left: auto;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+/* Stats Footer */
+.lab-panel-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 14px 16px;
+  border-top: 2px solid;
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  z-index: 2;
+}
+
+.lab-stat-item {
+  text-align: center;
+  padding: 8px 4px;
+  border-right: 1px solid rgba(96, 165, 250, 0.1);
+}
+
+.lab-stat-item:last-child {
+  border-right: none;
+}
+
+.lab-stat-label {
+  display: block;
+  font-size: 0.7rem;
+  color: #a0aabc;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.lab-stat-value {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Network Visualization */
+.lab-network {
+  position: relative;
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.lab-network svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 15px currentColor);
+}
+
+.lab-network-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.2rem;
+  opacity: 0.4;
+}
+
+.lab-bg-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animations */
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes dotPulse {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) scale(1.5);
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
 
 .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; backdrop-filter: blur(12px); }
 
