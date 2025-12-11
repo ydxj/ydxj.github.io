@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import emailjs from '@emailjs/browser';
 
@@ -8,7 +8,7 @@ const Contact = () => {
   const [status, setStatus] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [burstId, setBurstId] = useState(0);
+  const [confettiPieces, setConfettiPieces] = useState([]);
 
   useEffect(() => {
     gsap.fromTo(
@@ -22,18 +22,21 @@ const Contact = () => {
     if (status || success) {
       setStatus('');
       setSuccess(false);
+      setConfettiPieces([]);
     }
   };
 
-  const confettiPieces = useMemo(() => (
-    Array.from({ length: 18 }).map((_, i) => ({
+  const generateConfetti = () => {
+    const seed = Date.now();
+    return Array.from({ length: 18 }).map((_, i) => ({
       dx: (Math.random() * 140) - 70, // spread horizontally
       dy: (Math.random() * -120) + 20, // push upward mostly
       rot: Math.random() * 320 + 40,
       delay: i * 0.02,
-      idx: i
-    }))
-  ), [burstId]);
+      idx: i,
+      id: `${seed}-${i}`
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,7 +58,7 @@ const Contact = () => {
           setStatus('✅ Message sent successfully!');
           formRef.current.reset();
           setSuccess(true);
-          setBurstId((id) => id + 1);
+          setConfettiPieces(generateConfetti());
         },
         (error) => {
           console.error(error);
@@ -105,7 +108,7 @@ const Contact = () => {
                   <div className="confetti" aria-hidden="true">
                     {confettiPieces.map((piece) => (
                       <span
-                        key={`${burstId}-${piece.idx}`}
+                        key={piece.id}
                         className={`confetti-piece confetti-${piece.idx % 6}`}
                         style={{
                           '--dx': `${piece.dx}px`,
