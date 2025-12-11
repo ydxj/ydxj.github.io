@@ -13,16 +13,20 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-light"
+            aria-label="GitHub"
+            title="GitHub"
           >
-            <FaGithub />
+            <FaGithub aria-hidden="true" focusable="false" />
           </a>
           <a
             href="https://www.linkedin.com/in/zerhouni-omar/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-light"
+            aria-label="LinkedIn"
+            title="LinkedIn"
           >
-            <FaLinkedin />
+            <FaLinkedin aria-hidden="true" focusable="false" />
           </a>
         </div>
       </div>

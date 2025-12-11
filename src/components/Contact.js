@@ -52,16 +52,16 @@ const Contact = () => {
             <div ref={cardRef} className="contact-card shadow-lg">
               <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label">Full Name</label>
-                  <input type="text" name="user_name" className="form-control" required />
+                  <label className="form-label" htmlFor="contact-name">Full Name</label>
+                  <input id="contact-name" type="text" name="user_name" className="form-control" required />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">Email</label>
-                  <input type="email" name="user_email" className="form-control" required />
+                  <label className="form-label" htmlFor="contact-email">Email</label>
+                  <input id="contact-email" type="email" name="user_email" className="form-control" required />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label">Message</label>
-                  <textarea name="message" className="form-control" rows="5" required></textarea>
+                  <label className="form-label" htmlFor="contact-message">Message</label>
+                  <textarea id="contact-message" name="message" className="form-control" rows="5" required></textarea>
                 </div>
                 <button className="btn btn-primary w-100">Send Message</button>
                 {status && <p className="mt-3 text-success text-center">{status}</p>}
