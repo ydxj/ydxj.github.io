@@ -12,6 +12,23 @@ const About = () => {
     );
   }, []);
 
+  // SEO: reinforce about-section keywords
+  useEffect(() => {
+    const setMeta = (name, content) => {
+      if (!content) return;
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    };
+
+    const aboutDescription = 'About Zerhouni Omar — Full-stack developer in Morocco, WorldSkills Top 3, building responsive React/GSAP frontends and Node/Laravel backends with CI/CD.';
+    setMeta('description', aboutDescription);
+  }, []);
+
   return (
     <section ref={aboutRef} className="section shell-light about-shell" id="about">
       <div className="container-lg">

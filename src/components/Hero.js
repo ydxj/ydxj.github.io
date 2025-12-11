@@ -21,6 +21,52 @@ const Hero = () => {
     );
   }, []);
 
+  // SEO: set page title and key meta tags on mount
+  useEffect(() => {
+    const setMeta = (name, content) => {
+      if (!content) return;
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    };
+
+    const setOg = (property, content) => {
+      if (!content) return;
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('property', property);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    };
+
+    const title = 'Zerhouni Omar | Full-Stack Developer | WorldSkills Morocco';
+    const description = 'Full-stack developer based in Morocco (WorldSkills Top 3). React, Node.js, Laravel, CI/CD. Available for freelance projects and high-velocity delivery.';
+    const url = 'https://ydxj.github.io/';
+    const image = 'https://ydxj.github.io/og-image.png';
+    const keywords = 'Zerhouni Omar, Full-Stack Developer, React, Node.js, Laravel, WorldSkills Morocco, freelance developer, web developer Morocco, API development, CI/CD';
+
+    document.title = title;
+    setMeta('description', description);
+    setMeta('keywords', keywords);
+    setMeta('robots', 'index, follow');
+
+    setOg('og:type', 'website');
+    setOg('og:title', title);
+    setOg('og:description', description);
+    setOg('og:url', url);
+    setOg('og:image', image);
+    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:title', title);
+    setMeta('twitter:description', description);
+    setMeta('twitter:image', image);
+  }, []);
+
   return (
     <section id="hero" ref={heroRef} className="hero-shell">
       <div className="container-lg">
