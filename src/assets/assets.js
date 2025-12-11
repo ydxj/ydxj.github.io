@@ -1,26 +1,27 @@
-import orgaspace from './Project/Orgaspace.png'
-import elearning from './Project/elearning.png'
-import onetask from './Project/onetask.png'
-import webEcommerce from './Project/WebEcommerce.png'
-import nourbannat from './Project/nourbannat.png'
-import javascript from './tech/javascript.png'
-import css from './tech/css.png'
-import express from './tech/express.png'
-import git from './tech/git.png'
-import reactjs from './tech/reactjs.png'
+import orgaspace from './Project/Orgaspace.webp'
+import elearning from './Project/elearning.webp'
+import onetask from './Project/onetask.webp'
+import webEcommerce from './Project/WebEcommerce.webp'
+import nourbannat from './Project/nourbannat.webp'
+import javascript from './tech/javascript.webp'
+import css from './tech/css.webp'
+import express from './tech/express.webp'
+import git from './tech/git.webp'
+import reactjs from './tech/reactjs.webp'
 import mysql from './tech/mysql.png'
 import redux from './tech/redux.png'
-import nodejs from './tech/nodejs.png'
-import mongodb from './tech/mongodb.png'
-import html from './tech/html.png'
-import gsape from './tech/gsap.png'
-import docker from './tech/docker.png'
+import nodejs from './tech/nodejs.webp'
+import mongodb from './tech/mongodb.webp'
+import html from './tech/html.webp'
+import gsape from './tech/gsap.webp'
+import docker from './tech/docker.webp'
 import postgree from './tech/postgresql.png'
-import laravel from './tech/Laravel.png'
+import laravel from './tech/Laravel.webp'
 import python from './tech/python.png'
-import php from './tech/PHP.png'
-import bootstrap from './tech/Bootstrap.png'
-import jwt from './tech/JWT.png'
+import php from './tech/PHP.webp'
+import bootstrap from './tech/Bootstrap.webp'
+import jwt from './tech/JWT.webp'
+import tailwind from './tech/tailwind.webp'
 
 import resume from './resume/Cv de Omar Zerhouni.pdf'
 
@@ -50,5 +51,6 @@ export {
     bootstrap,
     jwt,
     resume,
-    nourbannat
+    nourbannat,
+    tailwind
 }

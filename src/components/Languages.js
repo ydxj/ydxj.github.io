@@ -19,7 +19,8 @@ import {
   python,
   php,
   bootstrap,
-  jwt
+  jwt,
+  // tailwind // save for later
 } from '../assets/assets';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -42,7 +43,8 @@ const languageInfo = {
   Laravel: "Elegant PHP framework. MVC heaven. 🧱",
   Python: "Readable, powerful, loved. From web to AI. 🐍",
   PHP: "Backend OG. Still powers WordPress. 💾",
-  Bootstrap: "Quick styling. Grid + responsive = done. 📐"
+  Bootstrap: "Quick styling. Grid + responsive = done. 📐",
+  // Tailwind: "Utility-first CSS. Design in the markup. 🌬️" // save for later
 };
 
 const Languages = () => {
@@ -67,7 +69,8 @@ const Languages = () => {
     { name: 'Laravel', img: laravel },
     { name: 'Python', img: python },
     { name: 'PHP', img: php },
-    { name: 'Bootstrap', img: bootstrap }
+    { name: 'Bootstrap', img: bootstrap },
+    // { name: 'Tailwind', img: tailwind }, // save for later
   ];
 
   useEffect(() => {
