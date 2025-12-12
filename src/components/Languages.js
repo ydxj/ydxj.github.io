@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import PixelTransition from './PixelTransition';
 import {
   javascript,
   css,
@@ -49,7 +50,6 @@ const languageInfo = {
 
 const Languages = () => {
   const langRef = useRef(null);
-  const [flipped, setFlipped] = useState({});
 
   const languages = [
     { name: 'JavaScript', img: javascript },
@@ -94,10 +94,6 @@ const Languages = () => {
     );
   }, []);
 
-  const toggleFlip = (name) => {
-    setFlipped((prev) => ({ ...prev, [name]: !prev[name] }));
-  };
-
   return (
     <section className="section shell-dark py-5" ref={langRef} id="Languages">
       <div className="container-lg text-center">
@@ -109,52 +105,40 @@ const Languages = () => {
             <div
               key={i}
               className="col-6 col-sm-4 col-md-3 col-lg-2 lang-card"
-              onClick={() => toggleFlip(lang.name)}
-              style={{ perspective: '1000px', cursor: 'pointer' }}
             >
-              <div className={`flip-box ${flipped[lang.name] ? 'flipped' : ''}`}>
-                <div className="flip-inner">
-                  <div className="flip-front p-3 rounded lang-box">
+              <PixelTransition
+                firstContent={
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px', width: '100%', height: '100%' }}>
                     <img
                       src={lang.img}
                       alt={lang.name}
-                      className="img-fluid"
-                      style={{ height: '60px', objectFit: 'contain', marginBottom: '10px' }}
+                      style={{ height: '60px', objectFit: 'contain' }}
                     />
-                    <p className="mb-0" style={{ fontSize: '0.9rem' }}>{lang.name}</p>
+                    <p style={{ margin: 0, fontSize: '0.9rem' }}>{lang.name}</p>
                   </div>
-                  <div className="flip-back p-3 rounded">
-                    <p className="mb-0" style={{ fontSize: '0.8rem' }}>
-                      {languageInfo[lang.name]}
-                    </p>
-                  </div>
-                </div>
-              </div>
+                }
+                secondContent={
+                  <p style={{ 
+                    margin: 0, 
+                    fontSize: '0.85rem', 
+                    color: '#e8ecf5',
+                    fontWeight: 500,
+                    textAlign: 'center',
+                    lineHeight: 1.6
+                  }}>
+                    {languageInfo[lang.name]}
+                  </p>
+                }
+                gridSize={6}
+                pixelColor='#ffffff'
+                animationStepDuration={0.4}
+                once={false}
+                className="lang-pixel-card"
+              />
             </div>
           ))}
         </div>
       </div>
-
-      <style>{`
-        .flip-box { width: 100%; height: 130px; position: relative; }
-        .flip-inner { width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
-        .flip-box.flipped .flip-inner { transform: rotateY(180deg); }
-        .flip-front, .flip-back {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          backface-visibility: hidden;
-          border: 1px solid rgba(255,255,255,0.08);
-          background: rgba(255,255,255,0.02);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-        }
-        .flip-back { transform: rotateY(180deg); background: rgba(0,0,0,0.35); }
-        .lang-box:hover { box-shadow: 0 0 20px rgba(96,165,250,0.4), 0 0 8px rgba(255,255,255,0.05) inset; }
-      `}</style>
     </section>
   );
 };
