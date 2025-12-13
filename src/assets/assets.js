@@ -35,6 +35,8 @@ export {
     elearning,
     onetask,
     webEcommerce,
+    rentohub,
+    monCentre,
     javascript,
     css,
     express,
@@ -56,6 +58,4 @@ export {
     resume,
     nourbannat,
     tailwind,
-    rentohub,
-    monCentre,
 }
