@@ -29,7 +29,7 @@ import tailwind from './tech/tailwind.webp'
 import resume from './resume/Cv de Omar Zerhouni.pdf'
 
 
-
+// please work
 export {
     orgaspace,
     elearning,
