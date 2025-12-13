@@ -3,6 +3,9 @@ import elearning from './Project/elearning.webp'
 import onetask from './Project/onetask.webp'
 import webEcommerce from './Project/WebEcommerce.webp'
 import nourbannat from './Project/nourbannat.webp'
+import rentohub from './Project/RentoHub.WebP'
+import monCentre from './Project/MonCentre.webp'
+
 import javascript from './tech/javascript.webp'
 import css from './tech/css.webp'
 import express from './tech/express.webp'
@@ -52,5 +55,7 @@ export {
     jwt,
     resume,
     nourbannat,
-    tailwind
+    tailwind,
+    rentohub,
+    monCentre,
 }
