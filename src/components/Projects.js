@@ -100,7 +100,7 @@ const Projects = () => {
     _progress: typeof p.progress === 'number' ? p.progress : 100,
   }));
 
-  const inProgress = normalizedProjects.filter((p) => p._status === 'in-progress');
+  // const inProgress = normalizedProjects.filter((p) => p._status === 'in-progress');
 
   useEffect(() => {
     gsap.fromTo(
