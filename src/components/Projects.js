@@ -69,7 +69,7 @@ const projectList = [
     tags: ["React Vite", "Node.js", "Sequelize", "MySQL","JWT","Bcrypt"],
     image: rentohub,
     link: "https://rentohub.app",
-    progress: 49,
+    progress: 52,
     status: "in-progress",
   },
   {
