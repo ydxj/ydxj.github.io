@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3453b77d.css",
-    "main.js": "/static/js/main.3d83ee16.js",
+    "main.js": "/static/js/main.7c6e2fd5.js",
     "static/js/453.c2508f5d.chunk.js": "/static/js/453.c2508f5d.chunk.js",
     "static/media/RentoHub.WebP": "/static/media/RentoHub.90c7648bdad22a834977.WebP",
     "static/media/Cv de Omar Zerhouni.pdf": "/static/media/Cv de Omar Zerhouni.b2f949ea6bbd52006a36.pdf",
@@ -10,12 +10,17 @@
     "static/media/Orgaspace.webp": "/static/media/Orgaspace.d25e0351d7ee6e5171c0.webp",
     "static/media/MonCentre.webp": "/static/media/MonCentre.dbe39b7e1abbae2294df.webp",
     "static/media/elearning.webp": "/static/media/elearning.2538473f5a8eabe37c1a.webp",
+    "static/media/parcel.png": "/static/media/parcel.d38091218fef8926aeea.png",
+    "static/media/webpack.webp": "/static/media/webpack.47692505d122dbcae490.webp",
+    "static/media/Vitejs-logo.webp": "/static/media/Vitejs-logo.f7a91f5d32d3db6bffa0.webp",
+    "static/media/Sass.png": "/static/media/Sass.9dcb46eb9f2d688bef83.png",
     "static/media/Laravel.webp": "/static/media/Laravel.befbf00a2300e89027e1.webp",
     "static/media/WebEcommerce.webp": "/static/media/WebEcommerce.ea6559aacb540c671620.webp",
     "static/media/PHP.webp": "/static/media/PHP.2c213c26bec44d9befde.webp",
     "static/media/onetask.webp": "/static/media/onetask.45c59fbd43e3295d5574.webp",
     "static/media/postgresql.png": "/static/media/postgresql.6c5d698f195dac2fe5af.png",
     "static/media/JWT.webp": "/static/media/JWT.380758f1a125a43096f4.webp",
+    "static/media/nextjs.webp": "/static/media/nextjs.a36b75223d9782ac1af4.webp",
     "static/media/express.webp": "/static/media/express.85f61dc084244a9fba78.webp",
     "static/media/Bootstrap.webp": "/static/media/Bootstrap.7aad1a4562e10e529a54.webp",
     "static/media/mysql.png": "/static/media/mysql.17ec01314179e9a8ab58.png",
@@ -30,11 +35,11 @@
     "static/media/javascript.webp": "/static/media/javascript.10426943082f7d1eac45.webp",
     "static/media/reactjs.webp": "/static/media/reactjs.971f5c738551367f00fe.webp",
     "main.3453b77d.css.map": "/static/css/main.3453b77d.css.map",
-    "main.3d83ee16.js.map": "/static/js/main.3d83ee16.js.map",
+    "main.7c6e2fd5.js.map": "/static/js/main.7c6e2fd5.js.map",
     "453.c2508f5d.chunk.js.map": "/static/js/453.c2508f5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3453b77d.css",
-    "static/js/main.3d83ee16.js"
+    "static/js/main.7c6e2fd5.js"
   ]
 }
