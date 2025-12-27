@@ -25,6 +25,9 @@ import php from './tech/PHP.webp'
 import bootstrap from './tech/Bootstrap.webp'
 import jwt from './tech/JWT.webp'
 import tailwind from './tech/tailwind.webp'
+import webpack from './tech/webpack.webp'
+import vite from './tech/Vitejs-logo.webp'
+import parcel from './tech/parcel.png'
 
 import resume from './resume/Cv de Omar Zerhouni.pdf'
 
@@ -58,4 +61,7 @@ export {
     resume,
     nourbannat,
     tailwind,
+    webpack,
+    vite,
+    parcel
 }
