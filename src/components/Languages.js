@@ -54,8 +54,8 @@ const languageInfo = {
   Bootstrap: "Quick styling. Grid + responsive = done. 📐",
   Tailwind: "Utility-first CSS. Design in the markup. 🌬️",
   Parcel: "Zero-config bundler. Just works. 🚀",
-  scss: "Sassy CSS. Variables, nesting, mixins. 💅",
-  nextjs: "React framework for production. SSR & static sites. ⏭️"
+  SCSS: "Sassy CSS. Variables, nesting, mixins. 💅",
+  "Next.js": "React framework for production. SSR & static sites. ⏭️"
 };
 
 const Languages = () => {
