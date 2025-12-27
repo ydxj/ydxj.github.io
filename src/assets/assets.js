@@ -28,6 +28,8 @@ import tailwind from './tech/tailwind.webp'
 import webpack from './tech/webpack.webp'
 import vite from './tech/Vitejs-logo.webp'
 import parcel from './tech/parcel.png'
+import scss from './tech/Sass.png'
+import nextjs from './tech/nextjs.webp'
 
 import resume from './resume/Cv de Omar Zerhouni.pdf'
 
@@ -63,5 +65,7 @@ export {
     tailwind,
     webpack,
     vite,
-    parcel
+    parcel,
+    scss,
+    nextjs
 }

@@ -21,7 +21,12 @@ import {
   php,
   bootstrap,
   jwt,
-  // tailwind // save for later
+  tailwind,
+  webpack,
+  vite,
+  parcel,
+  scss,
+  nextjs
 } from '../assets/assets';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,15 +42,20 @@ const languageInfo = {
   'Express.js': "Minimal backend with max performance. ⚙️",
   JWT: "Secure token-based authentication. Keep it secret, keep it safe. 🔐",
   Redux: "Global state control. Great power, great responsibility. 🧠",
+  Vite: "Next-gen frontend tooling. Lightning fast. ⚡",
   Git: "Version control savior. Mistakes? Rewind time. 🕰️",
   GSAP: "Smooth animations like butter. GreenSock rocks. 🐸",
   Docker: "Container everything. Consistent dev > prod. 📦",
   PostgreSQL: "Powerful open-source relational DB. 🐘",
+  Webpack: "Module bundler. Packs your code for the web. 📦",
   Laravel: "Elegant PHP framework. MVC heaven. 🧱",
   Python: "Readable, powerful, loved. From web to AI. 🐍",
   PHP: "Backend OG. Still powers WordPress. 💾",
   Bootstrap: "Quick styling. Grid + responsive = done. 📐",
-  // Tailwind: "Utility-first CSS. Design in the markup. 🌬️" // save for later
+  Tailwind: "Utility-first CSS. Design in the markup. 🌬️",
+  Parcel: "Zero-config bundler. Just works. 🚀",
+  scss: "Sassy CSS. Variables, nesting, mixins. 💅",
+  nextjs: "React framework for production. SSR & static sites. ⏭️"
 };
 
 const Languages = () => {
@@ -62,15 +72,20 @@ const Languages = () => {
     { name: 'Express.js', img: express },
     { name: 'JWT', img: jwt },
     { name: 'Redux', img: redux },
+    { name: 'Vite', img: vite },
     { name: 'Git', img: git },
     { name: 'GSAP', img: gsape },
     { name: 'Docker', img: docker },
     { name: 'PostgreSQL', img: postgree },
+    { name: 'Webpack', img: webpack },
     { name: 'Laravel', img: laravel },
     { name: 'Python', img: python },
     { name: 'PHP', img: php },
     { name: 'Bootstrap', img: bootstrap },
-    // { name: 'Tailwind', img: tailwind }, // save for later
+    { name: 'Tailwind', img: tailwind },
+    { name: 'Parcel', img: parcel },
+    { name: 'SCSS', img: scss },
+    { name: 'Next.js', img: nextjs }
   ];
 
   useEffect(() => {
