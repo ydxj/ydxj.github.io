@@ -5,6 +5,7 @@ import webEcommerce from './Project/WebEcommerce.webp'
 import nourbannat from './Project/nourbannat.webp'
 import rentohub from './Project/RentoHub.WebP'
 import monCentre from './Project/MonCentre.webp'
+import RestaurantMayViet from './Project/RestaurantMayViet.png'
 
 import javascript from './tech/javascript.webp'
 import css from './tech/css.webp'
@@ -42,6 +43,8 @@ export {
     webEcommerce,
     rentohub,
     monCentre,
+    RestaurantMayViet,
+    
     javascript,
     css,
     express,

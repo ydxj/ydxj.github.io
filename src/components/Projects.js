@@ -8,7 +8,8 @@ import {
   webEcommerce,
   nourbannat,
   rentohub,
-  monCentre
+  monCentre,
+  RestaurantMayViet
 } from '../assets/assets.js';
 
 const projectList = [
@@ -49,6 +50,16 @@ const projectList = [
     link: 'https://github.com/ydxj/webEcommerce',
     tags: ['#React', '#GSAP', '#ReactRouterDom', '#Axios', '#NodeJS', '#Express', '#JWT', '#Bcrypt', '#MySQL', '#OpenSource'],
     image: webEcommerce,
+    status: 'completed',
+    progress: 100,
+  },
+  {
+    title: 'Restaurant May viet',
+    description:
+      'A restaurant website for May Viet, featuring menu display, online reservations, and contact information to enhance customer engagement and streamline bookings.',
+    link: 'https://github.com/ydxj/restaurant_may_viet.git',
+    tags: ['#React', '#Bootstrap' , '#ReactRouterDom', '#OpenSource'],
+    image: RestaurantMayViet,
     status: 'completed',
     progress: 100,
   },
