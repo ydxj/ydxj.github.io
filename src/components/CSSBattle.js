@@ -7,59 +7,87 @@ const CSSBattle = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    // Load the CSS Battle API from CDN
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.7.3/dist/bundle/CSSBattleAPI.min.js';
-    script.async = true;
+  // Cached profile data - update this manually by visiting your CSS Battle profile
+  const cachedProfileData = {
+    avatar: 'https://ik.imagekit.io/cssbattle/user%2FqIp1Xec6M1gO1E8qZdIHy4jPazB3%2Favatar_qIp1Xec6M1gO1E8qZdIHy4jPazB3.jpeg?alt=media',
+    name: 'Zerhouni Omar',
+    username: 'zerhouni',
+    country: 'Morocco',
+    job: 'Full-Stack Developer',
+    isLiveData: false,
+    lastUpdated: '2026-01-25',
+    battleStats: {
+      globalRank: 6918,
+      targetsPlayed: 33,
+      totalScore: 21052.09,
+    },
+    dailyStats: {
+      targetsPlayed: 31,
+      avgMatch: '99.94%',
+      avgCharacters: 252,
+    },
+    versusStats: {
+      rating: 1200,
+      gamesPlayed: 0,
+      wins: 0,
+    },
+    streaks: {
+      current: 16,
+      longest: 16,
+    }
+  };
 
-    script.onload = async () => {
+  useEffect(() => {
+    const fetchCSSBattleProfile = async () => {
       try {
         setLoading(true);
-        // Access the library from window
-        const { CSSBattleAPI } = window;
         
-        if (!CSSBattleAPI) {
-          throw new Error('CSSBattleAPI not loaded');
-        }
-
-        // Create instance with default proxy
-        const cba = new CSSBattleAPI({
-          proxy: true
-        });
-
-        // Fetch profile
-        const profile = await cba.profile('zerhouni');
+        // Try to fetch with CORS proxy
+        const corsProxy = 'https://api.allorigins.win/raw?url=';
+        const url = corsProxy + encodeURIComponent('https://cssbattle.dev/player/zerhouni');
         
-        if (profile && typeof profile === 'string') {
-          // Error message returned as string
-          setError(profile);
-          setLoading(false);
-        } else if (profile) {
-          setProfileData(profile);
-          setError(null);
-          setLoading(false);
+        const response = await Promise.race([
+          fetch(url),
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Timeout')), 8000)
+          )
+        ]);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch');
         }
+        
+        const html = await response.text();
+        
+        // Parse using DOMParser
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        // Try to extract data from HTML
+        const globalRankMatch = html.match(/Global rank<\/span><\/div><\/div>[\s\S]*?<span[^>]*>(\d+)<\/span>/);
+        const targetsPlayedMatch = html.match(/Targets played<\/span><\/div><\/div>[\s\S]*?<span[^>]*>(\d+)<\/span>/);
+        const totalScoreMatch = html.match(/Total score<\/span><\/div><\/div>[\s\S]*?<span[^>]*>([\d.]+)<\/span>/);
+        
+        if (globalRankMatch && targetsPlayedMatch && totalScoreMatch) {
+          cachedProfileData.battleStats.globalRank = parseInt(globalRankMatch[1]);
+          cachedProfileData.battleStats.targetsPlayed = parseInt(targetsPlayedMatch[1]);
+          cachedProfileData.battleStats.totalScore = parseFloat(totalScoreMatch[1]);
+          cachedProfileData.isLiveData = true;
+        }
+        
+        setProfileData(cachedProfileData);
+        setError(null);
+        setLoading(false);
       } catch (err) {
-        console.error('CSS Battle API Error:', err);
-        setError('Unable to load CSS Battle profile. Please try again later.');
+        console.warn('Could not fetch live data, using cached stats:', err);
+        // Use cached data
+        setProfileData(cachedProfileData);
+        setError(null);
         setLoading(false);
       }
     };
 
-    script.onerror = () => {
-      setError('Failed to load CSS Battle API library');
-      setLoading(false);
-    };
-
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
+    fetchCSSBattleProfile();
   }, []);
 
   useEffect(() => {
@@ -84,10 +112,10 @@ const CSSBattle = () => {
         <div className="row align-items-center g-5 py-5">
           <div className="col-lg-12">
             <p className="eyebrow css-battle-stagger">CSS Battle</p>
-            <h2 className="display-5 fw-bold mb-4 css-battle-stagger">
+            <h2 className="display-5 fw-bold mb-3 css-battle-stagger">
               <span className="text-gradient">Pure CSS Challenges</span>
             </h2>
-            <p className="lead text-muted mb-5 css-battle-stagger" style={{ maxWidth: '720px' }}>
+            <p className="lead text-muted mb-4 css-battle-stagger" style={{ maxWidth: '720px', marginBottom: '2rem' }}>
               Competing in CSS Battle, a global platform for CSS developers to tackle creative design challenges. Showcasing pixel-perfect accuracy and modern CSS techniques.
             </p>
 
@@ -107,15 +135,23 @@ const CSSBattle = () => {
 
             {profileData && !loading && (
               <>
+                {/* {!profileData.isLiveData && (
+                  <div className="alert alert-info css-battle-stagger mb-4" role="alert">
+                    📊 Showing cached profile data. Visit CSS Battle for live stats!
+                  </div>
+                )} */}
+                
                 <div className="css-battle-header css-battle-stagger mb-5">
                   <div className="d-flex align-items-center gap-4 mb-4">
                     <div className="css-battle-avatar">
-                      <img 
-                        src={profileData.avatar} 
-                        alt={profileData.name}
-                        className="rounded-circle"
-                        style={{ width: '100px', height: '100px', border: '3px solid #60a5fa' }}
-                      />
+                      {profileData.avatar && (
+                        <img 
+                          src={profileData.avatar} 
+                          alt={profileData.name}
+                          className="rounded-circle"
+                          style={{ width: '100px', height: '100px', border: '3px solid #60a5fa' }}
+                        />
+                      )}
                     </div>
                     <div>
                       <h3 className="mb-1" style={{ color: '#e8ecf5' }}>
@@ -132,40 +168,80 @@ const CSSBattle = () => {
                   </div>
                 </div>
 
-                <div className="row g-4 mb-5">
-                  <div className="col-md-6 col-lg-3">
+                {/* Streaks Section */}
+                <div className="row g-4 mb-4">
+                  <div className="col-md-6">
+                    <div className="css-battle-stat css-battle-stagger">
+                      <div className="stat-label">🔥 Current Streak</div>
+                      <div className="stat-number">{profileData.streaks.current}</div>
+                      <div className="stat-sublabel">days</div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="css-battle-stat css-battle-stagger">
+                      <div className="stat-label">⭐ Longest Streak</div>
+                      <div className="stat-number">{profileData.streaks.longest}</div>
+                      <div className="stat-sublabel">days</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Battle Stats */}
+                <h3 className="mb-3 css-battle-stagger" style={{ color: '#e8ecf5', fontSize: '1.1rem' }}>Battle Stats</h3>
+                <div className="row g-3 mb-4">
+                  <div className="col-md-6 col-lg-4">
                     <div className="css-battle-stat css-battle-stagger">
                       <div className="stat-label">Global Rank</div>
-                      <div className="stat-number">#{profileData.ranking.rank}</div>
-                      <div className="stat-sublabel">out of {profileData.ranking.totalPlayers.toLocaleString()}</div>
+                      <div className="stat-number">#{profileData.battleStats.globalRank.toLocaleString()}</div>
+                      <div className="stat-sublabel">position</div>
                     </div>
                   </div>
-
-                  <div className="col-md-6 col-lg-3">
+                  <div className="col-md-6 col-lg-4">
+                    <div className="css-battle-stat css-battle-stagger">
+                      <div className="stat-label">Targets Played</div>
+                      <div className="stat-number">{profileData.battleStats.targetsPlayed}</div>
+                      <div className="stat-sublabel">challenges</div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-4">
                     <div className="css-battle-stat css-battle-stagger">
                       <div className="stat-label">Total Score</div>
-                      <div className="stat-number" style={{ fontSize: '2.5rem' }}>
-                        {profileData.ranking.totalScore.toLocaleString()}
+                      <div className="stat-number" style={{ fontSize: '1.5rem' }}>
+                        {typeof profileData.battleStats.totalScore === 'number' 
+                          ? profileData.battleStats.totalScore.toLocaleString('en-US', { 
+                              maximumFractionDigits: 0 
+                            }) 
+                          : '0'}
                       </div>
-                      <div className="stat-sublabel">points earned</div>
+                      <div className="stat-sublabel">points</div>
                     </div>
                   </div>
+                </div>
 
-                  <div className="col-md-6 col-lg-3">
+                {/* Daily Stats */}
+                <h3 className="mb-3 css-battle-stagger" style={{ color: '#e8ecf5', fontSize: '1.1rem' }}>Daily Stats</h3>
+                <div className="row g-3 mb-4">
+                  <div className="col-md-6 col-lg-4">
                     <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">Battles Played</div>
-                      <div className="stat-number">{profileData.ranking.battlesPlayed}</div>
-                      <div className="stat-sublabel">challenges completed</div>
+                      <div className="stat-label">Targets Played</div>
+                      <div className="stat-number">{profileData.dailyStats.targetsPlayed}</div>
+                      <div className="stat-sublabel">daily</div>
                     </div>
                   </div>
-
-                  <div className="col-md-6 col-lg-3">
+                  <div className="col-md-6 col-lg-4">
                     <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">Avg Score</div>
-                      <div className="stat-number">
-                        {Math.round(profileData.ranking.totalScore / profileData.ranking.battlesPlayed)}
+                      <div className="stat-label">Avg Match</div>
+                      <div className="stat-number" style={{ fontSize: '1.5rem' }}>
+                        {profileData.dailyStats.avgMatch}
                       </div>
-                      <div className="stat-sublabel">per battle</div>
+                      <div className="stat-sublabel">accuracy</div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-4">
+                    <div className="css-battle-stat css-battle-stagger">
+                      <div className="stat-label">Avg Characters</div>
+                      <div className="stat-number">{profileData.dailyStats.avgCharacters}</div>
+                      <div className="stat-sublabel">per solution</div>
                     </div>
                   </div>
                 </div>
@@ -177,7 +253,7 @@ const CSSBattle = () => {
                     rel="noopener noreferrer"
                     className="btn btn-primary btn-lg"
                   >
-                    View Full Profile →
+                    View Full Profile on CSS Battle →
                   </a>
                 </div>
               </>
@@ -190,28 +266,29 @@ const CSSBattle = () => {
         .css-battle-card {
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 16px;
-          padding: 2rem;
+          border-radius: 12px;
+          padding: 1.5rem;
           backdrop-filter: blur(10px);
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: 200px;
+          min-height: 150px;
         }
 
         .css-battle-header {
           background: rgba(96, 165, 250, 0.05);
           border: 1px solid rgba(96, 165, 250, 0.2);
-          border-radius: 16px;
-          padding: 2rem;
+          border-radius: 12px;
+          padding: 1.5rem;
           backdrop-filter: blur(10px);
+          margin-bottom: 2rem;
         }
 
         .css-battle-stat {
           background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
           border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 16px;
-          padding: 2rem 1.5rem;
+          border-radius: 12px;
+          padding: 1.2rem 1rem;
           backdrop-filter: blur(10px);
           text-align: center;
           transition: all 0.3s ease;
@@ -233,8 +310,8 @@ const CSSBattle = () => {
 
         .css-battle-stat:hover {
           border-color: rgba(96, 165, 250, 0.5);
-          transform: translateY(-5px);
-          box-shadow: 0 8px 32px rgba(96, 165, 250, 0.1);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 24px rgba(96, 165, 250, 0.08);
         }
 
         .css-battle-stat:hover::before {
@@ -242,27 +319,27 @@ const CSSBattle = () => {
         }
 
         .stat-label {
-          font-size: 0.875rem;
+          font-size: 0.75rem;
           color: #a0aabc;
           text-transform: uppercase;
-          letter-spacing: 0.15em;
-          margin-bottom: 0.5rem;
+          letter-spacing: 0.12em;
+          margin-bottom: 0.35rem;
           font-weight: 600;
         }
 
         .stat-number {
-          font-size: 2rem;
+          font-size: 1.6rem;
           font-weight: 700;
           background: linear-gradient(120deg, #60a5fa, #a855f7);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          margin: 0.5rem 0;
+          margin: 0.25rem 0;
         }
 
         .stat-sublabel {
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           color: #8b9bb7;
-          margin-top: 0.5rem;
+          margin-top: 0.3rem;
         }
 
         .css-battle-avatar {
@@ -279,27 +356,28 @@ const CSSBattle = () => {
           border: none;
           font-weight: 600;
           letter-spacing: 0.05em;
-          padding: 12px 32px;
+          padding: 10px 24px;
+          font-size: 0.95rem;
           transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 12px 32px rgba(96, 165, 250, 0.3);
+          transform: translateY(-2px);
+          box-shadow: 0 10px 24px rgba(96, 165, 250, 0.25);
           color: #fff;
         }
 
         @media (max-width: 768px) {
           .css-battle-header {
-            padding: 1.5rem;
+            padding: 1rem;
           }
 
           .css-battle-stat {
-            padding: 1.5rem 1rem;
+            padding: 1rem 0.8rem;
           }
 
           .stat-number {
-            font-size: 1.75rem;
+            font-size: 1.4rem;
           }
 
           .d-flex {
