@@ -7,65 +7,59 @@ const CSSBattle = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Static profile data - hardcoded for reliability since API access is limited
-  const staticProfileData = {
-    avatar: 'https://cssbattle.dev/assets/images/avatars/1234567.png',
-    name: 'Zerhouni Omar',
-    username: 'zerhouni',
-    job: 'Full-Stack Developer',
-    country: 'Morocco',
-    networks: {
-      github: 'https://github.com/ydxj',
-      twitter: null,
-      codepen: null,
-      website: null
-    },
-    ranking: {
-      rank: 847,
-      totalPlayers: 2847,
-      totalScore: 4250,
-      battlesPlayed: 42
-    }
-  };
-
   useEffect(() => {
-    const fetchCSSBattleProfile = async () => {
+    // Load the CSS Battle API from CDN
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@edixon/css-battle-api@0.7.3/dist/bundle/CSSBattleAPI.min.js';
+    script.async = true;
+
+    script.onload = async () => {
       try {
         setLoading(true);
+        // Access the library from window
+        const { CSSBattleAPI } = window;
         
-        // Use corsproxy.io - a reliable CORS proxy service
-        const username = 'zerhouni';
-        const url = `https://corsproxy.io/?https://cssbattle.dev/api/player/${username}`;
-        
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          setProfileData(data);
-        } else {
-          // Fallback to static data if API fails
-          setProfileData(staticProfileData);
+        if (!CSSBattleAPI) {
+          throw new Error('CSSBattleAPI not loaded');
         }
-        setLoading(false);
+
+        // Create instance with default proxy
+        const cba = new CSSBattleAPI({
+          proxy: true
+        });
+
+        // Fetch profile
+        const profile = await cba.profile('zerhouni');
+        
+        if (profile && typeof profile === 'string') {
+          // Error message returned as string
+          setError(profile);
+          setLoading(false);
+        } else if (profile) {
+          setProfileData(profile);
+          setError(null);
+          setLoading(false);
+        }
       } catch (err) {
-        console.warn('CSS Battle API unavailable, using cached data:', err);
-        // Use static data as fallback
-        setProfileData(staticProfileData);
+        console.error('CSS Battle API Error:', err);
+        setError('Unable to load CSS Battle profile. Please try again later.');
         setLoading(false);
       }
     };
 
-    // Add a small delay to ensure component is mounted
-    const timer = setTimeout(() => {
-      fetchCSSBattleProfile();
-    }, 100);
+    script.onerror = () => {
+      setError('Failed to load CSS Battle API library');
+      setLoading(false);
+    };
 
-    return () => clearTimeout(timer);
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -107,7 +101,7 @@ const CSSBattle = () => {
 
             {error && (
               <div className="alert alert-warning css-battle-stagger" role="alert">
-                Unable to load live data. Showing cached profile info.
+                {error}
               </div>
             )}
 
