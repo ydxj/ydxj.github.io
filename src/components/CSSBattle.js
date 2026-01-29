@@ -141,126 +141,107 @@ const CSSBattle = () => {
 
             {profileData && !loading && (
               <>
-                {/* {!profileData.isLiveData && (
-                  <div className="alert alert-info css-battle-stagger mb-4" role="alert">
-                    📊 Showing cached profile data. Visit CSS Battle for live stats!
-                  </div>
-                )} */}
-                
-                <div className="css-battle-header css-battle-stagger mb-5">
-                  <div className="d-flex align-items-center gap-4 mb-4">
-                    <div className="css-battle-avatar">
+                <div className="css-battle-main-card css-battle-stagger">
+                  <div className="card-left">
+                    <div className="profile-section">
                       {profileData.avatar && (
                         <img 
                           src={profileData.avatar} 
                           alt={profileData.name}
-                          className="rounded-circle"
-                          style={{ width: '100px', height: '100px', border: '3px solid #60a5fa' }}
+                          className="profile-image"
                         />
                       )}
-                    </div>
-                    <div>
-                      <h3 className="mb-1" style={{ color: '#e8ecf5' }}>
-                        {profileData.name}
-                      </h3>
-                      <p className="text-muted mb-0">@{profileData.username}</p>
-                      {profileData.job && (
-                        <p className="text-muted mb-0">{profileData.job}</p>
-                      )}
+                      <h3 className="profile-name">{profileData.name}</h3>
+                      <p className="profile-username">@{profileData.username}</p>
                       {profileData.country && (
-                        <p className="text-muted mb-0">📍 {profileData.country}</p>
+                        <p className="profile-location">📍 {profileData.country}</p>
                       )}
+                      <a 
+                        href="https://cssbattle.dev/player/zerhouni"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="view-profile-btn"
+                      >
+                        View Profile →
+                      </a>
                     </div>
                   </div>
-                </div>
-
-                {/* Streaks Section */}
-                <div className="row g-4 mb-4">
-                  <div className="col-md-6">
-                    <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">🔥 Current Streak</div>
-                      <div className="stat-number">{profileData.streaks.current}</div>
-                      <div className="stat-sublabel">days</div>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">⭐ Longest Streak</div>
-                      <div className="stat-number">{profileData.streaks.longest}</div>
-                      <div className="stat-sublabel">days</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Battle Stats */}
-                <h3 className="mb-3 css-battle-stagger" style={{ color: '#e8ecf5', fontSize: '1.1rem' }}>Battle Stats</h3>
-                <div className="row g-3 mb-4">
-                  <div className="col-md-6 col-lg-4">
-                    <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">Global Rank</div>
-                      <div className="stat-number">#{profileData.battleStats.globalRank.toLocaleString()}</div>
-                      <div className="stat-sublabel">position</div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4">
-                    <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">Targets Played</div>
-                      <div className="stat-number">{profileData.battleStats.targetsPlayed}</div>
-                      <div className="stat-sublabel">challenges</div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4">
-                    <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">Total Score</div>
-                      <div className="stat-number" style={{ fontSize: '1.5rem' }}>
-                        {typeof profileData.battleStats.totalScore === 'number' 
-                          ? profileData.battleStats.totalScore.toLocaleString('en-US', { 
-                              maximumFractionDigits: 0 
-                            }) 
-                          : '0'}
+                  
+                  <div className="card-right">
+                    {/* Streaks */}
+                    <div className="stats-section">
+                      <div className="stats-row">
+                        <div className="stat-item">
+                          <div className="stat-icon">🔥</div>
+                          <div className="stat-content">
+                            <div className="stat-value">{profileData.streaks.current}</div>
+                            <div className="stat-label">Current Streak</div>
+                          </div>
+                        </div>
+                        <div className="stat-item">
+                          <div className="stat-icon">⭐</div>
+                          <div className="stat-content">
+                            <div className="stat-value">{profileData.streaks.longest}</div>
+                            <div className="stat-label">Longest Streak</div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="stat-sublabel">points</div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Daily Stats */}
-                <h3 className="mb-3 css-battle-stagger" style={{ color: '#e8ecf5', fontSize: '1.1rem' }}>Daily Stats</h3>
-                <div className="row g-3 mb-4">
-                  <div className="col-md-6 col-lg-4">
-                    <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">Targets Played</div>
-                      <div className="stat-number">{profileData.dailyStats.targetsPlayed}</div>
-                      <div className="stat-sublabel">daily</div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4">
-                    <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">Avg Match</div>
-                      <div className="stat-number" style={{ fontSize: '1.5rem' }}>
-                        {profileData.dailyStats.avgMatch}
+                    {/* Battle Stats */}
+                    <div className="stats-section">
+                      <h4 className="section-title">Battle Stats</h4>
+                      <div className="stats-row">
+                        <div className="stat-item">
+                          <div className="stat-content">
+                            <div className="stat-value">#{profileData.battleStats.globalRank.toLocaleString()}</div>
+                            <div className="stat-label">Global Rank</div>
+                          </div>
+                        </div>
+                        <div className="stat-item">
+                          <div className="stat-content">
+                            <div className="stat-value">{profileData.battleStats.targetsPlayed}</div>
+                            <div className="stat-label">Targets Played</div>
+                          </div>
+                        </div>
+                        <div className="stat-item">
+                          <div className="stat-content">
+                            <div className="stat-value">
+                              {typeof profileData.battleStats.totalScore === 'number' 
+                                ? profileData.battleStats.totalScore.toLocaleString('en-US', { maximumFractionDigits: 0 }) 
+                                : '0'}
+                            </div>
+                            <div className="stat-label">Total Score</div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="stat-sublabel">accuracy</div>
                     </div>
-                  </div>
-                  <div className="col-md-6 col-lg-4">
-                    <div className="css-battle-stat css-battle-stagger">
-                      <div className="stat-label">Avg Characters</div>
-                      <div className="stat-number">{profileData.dailyStats.avgCharacters}</div>
-                      <div className="stat-sublabel">per solution</div>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="css-battle-cta css-battle-stagger">
-                  <a 
-                    href="https://cssbattle.dev/player/zerhouni"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary btn-lg"
-                  >
-                    View Full Profile on CSS Battle →
-                  </a>
+                    {/* Daily Stats */}
+                    <div className="stats-section">
+                      <h4 className="section-title">Daily Stats</h4>
+                      <div className="stats-row">
+                        <div className="stat-item">
+                          <div className="stat-content">
+                            <div className="stat-value">{profileData.dailyStats.targetsPlayed}</div>
+                            <div className="stat-label">Targets Played</div>
+                          </div>
+                        </div>
+                        <div className="stat-item">
+                          <div className="stat-content">
+                            <div className="stat-value">{profileData.dailyStats.avgMatch}</div>
+                            <div className="stat-label">Avg Match</div>
+                          </div>
+                        </div>
+                        <div className="stat-item">
+                          <div className="stat-content">
+                            <div className="stat-value">{profileData.dailyStats.avgCharacters}</div>
+                            <div className="stat-label">Avg Characters</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </>
             )}
@@ -270,125 +251,256 @@ const CSSBattle = () => {
 
       <style>{`
         .css-battle-card {
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 12px;
-          padding: 1.5rem;
-          backdrop-filter: blur(10px);
+          background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
+          border: 1px solid rgba(148, 163, 184, 0.1);
+          border-radius: 16px;
+          padding: 2rem;
+          backdrop-filter: blur(20px);
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: 150px;
+          min-height: 180px;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
-        .css-battle-header {
-          background: rgba(96, 165, 250, 0.05);
-          border: 1px solid rgba(96, 165, 250, 0.2);
-          border-radius: 12px;
-          padding: 1.5rem;
-          backdrop-filter: blur(10px);
-          margin-bottom: 2rem;
+        .css-battle-main-card {
+          background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.9));
+          border: 1px solid rgba(96, 165, 250, 0.15);
+          border-radius: 24px;
+          backdrop-filter: blur(20px);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                      0 0 0 1px rgba(96, 165, 250, 0.1),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          overflow: hidden;
+          display: flex;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .css-battle-stat {
-          background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 12px;
-          padding: 1.2rem 1rem;
-          backdrop-filter: blur(10px);
+        .css-battle-main-card:hover {
+          box-shadow: 0 30px 80px rgba(96, 165, 250, 0.2),
+                      0 0 0 1px rgba(96, 165, 250, 0.2),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          transform: translateY(-4px);
+        }
+
+        .card-left {
+          flex: 0 0 280px;
+          padding: 3rem 2rem;
+          border-right: 1px solid rgba(96, 165, 250, 0.2);
+          background: linear-gradient(180deg, rgba(96, 165, 250, 0.03), transparent);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .profile-section {
           text-align: center;
+          width: 100%;
+        }
+
+        .profile-image {
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          border: 4px solid rgba(96, 165, 250, 0.3);
+          box-shadow: 0 12px 40px rgba(96, 165, 250, 0.3),
+                      0 0 0 8px rgba(96, 165, 250, 0.05);
+          margin-bottom: 1.5rem;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .profile-image:hover {
+          transform: scale(1.08);
+          box-shadow: 0 16px 60px rgba(96, 165, 250, 0.5),
+                      0 0 0 12px rgba(96, 165, 250, 0.1);
+        }
+
+        .profile-name {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #e8ecf5;
+          margin: 0 0 0.5rem 0;
+          background: linear-gradient(135deg, #60a5fa, #a855f7);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .profile-username {
+          font-size: 0.95rem;
+          color: #94a3b8;
+          margin: 0 0 0.5rem 0;
+        }
+
+        .profile-location {
+          font-size: 0.9rem;
+          color: #64748b;
+          margin: 0 0 1.5rem 0;
+        }
+
+        .view-profile-btn {
+          display: inline-block;
+          padding: 10px 24px;
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+          color: white;
+          text-decoration: none;
+          border-radius: 10px;
+          font-weight: 600;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3);
+        }
+
+        .view-profile-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(96, 165, 250, 0.5);
+          color: white;
+        }
+
+        .card-right {
+          flex: 1;
+          padding: 2.5rem 3rem;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .stats-section {
+          position: relative;
+        }
+
+        .section-title {
+          font-size: 0.85rem;
+          font-weight: 700;
+          color: #94a3b8;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          margin: 0 0 1rem 0;
+          padding-bottom: 0.5rem;
+          position: relative;
+        }
+
+        .section-title::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 2px;
+          background: linear-gradient(90deg, #60a5fa, #a855f7);
+          border-radius: 2px;
+        }
+
+        .stats-row {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          gap: 1.5rem;
+        }
+
+        .stat-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1.2rem;
+          background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(168, 85, 247, 0.05));
+          border: 1px solid rgba(148, 163, 184, 0.1);
+          border-radius: 12px;
           transition: all 0.3s ease;
           position: relative;
           overflow: hidden;
         }
 
-        .css-battle-stat::before {
+        .stat-item::before {
           content: '';
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, transparent 100%);
+          background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), transparent);
           opacity: 0;
           transition: opacity 0.3s ease;
         }
 
-        .css-battle-stat:hover {
-          border-color: rgba(96, 165, 250, 0.5);
-          transform: translateY(-3px);
-          box-shadow: 0 8px 24px rgba(96, 165, 250, 0.08);
+        .stat-item:hover {
+          border-color: rgba(96, 165, 250, 0.3);
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(96, 165, 250, 0.15);
         }
 
-        .css-battle-stat:hover::before {
+        .stat-item:hover::before {
           opacity: 1;
         }
 
-        .stat-label {
-          font-size: 0.75rem;
-          color: #a0aabc;
-          text-transform: uppercase;
-          letter-spacing: 0.12em;
-          margin-bottom: 0.35rem;
-          font-weight: 600;
-        }
-
-        .stat-number {
-          font-size: 1.6rem;
-          font-weight: 700;
-          background: linear-gradient(120deg, #60a5fa, #a855f7);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          margin: 0.25rem 0;
-        }
-
-        .stat-sublabel {
-          font-size: 0.7rem;
-          color: #8b9bb7;
-          margin-top: 0.3rem;
-        }
-
-        .css-battle-avatar {
+        .stat-icon {
+          font-size: 2rem;
+          line-height: 1;
           position: relative;
           z-index: 1;
         }
 
-        .css-battle-cta {
-          text-align: center;
+        .stat-content {
+          flex: 1;
+          position: relative;
+          z-index: 1;
         }
 
-        .btn-primary {
-          background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
-          border: none;
+        .stat-value {
+          font-size: 1.5rem;
+          font-weight: 800;
+          background: linear-gradient(135deg, #60a5fa, #a855f7);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          line-height: 1.2;
+          margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+          font-size: 0.75rem;
+          color: #94a3b8;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
           font-weight: 600;
-          letter-spacing: 0.05em;
-          padding: 10px 24px;
-          font-size: 0.95rem;
-          transition: all 0.3s ease;
         }
 
-        .btn-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 24px rgba(96, 165, 250, 0.25);
-          color: #fff;
-        }
-
-        @media (max-width: 768px) {
-          .css-battle-header {
-            padding: 1rem;
-          }
-
-          .css-battle-stat {
-            padding: 1rem 0.8rem;
-          }
-
-          .stat-number {
-            font-size: 1.4rem;
-          }
-
-          .d-flex {
+        @media (max-width: 992px) {
+          .css-battle-main-card {
             flex-direction: column;
-            align-items: flex-start;
+          }
+
+          .card-left {
+            flex: none;
+            border-right: none;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+            padding: 2rem;
+          }
+
+          .profile-image {
+            width: 100px;
+            height: 100px;
+          }
+
+          .card-right {
+            padding: 2rem;
+          }
+
+          .stats-row {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+          }
+
+          .stat-item {
+            flex-direction: column;
+            text-align: center;
+            padding: 1rem;
+            gap: 0.5rem;
+          }
+
+          .stat-icon {
+            font-size: 1.5rem;
+          }
+
+          .stat-value {
+            font-size: 1.3rem;
           }
         }
       `}</style>
