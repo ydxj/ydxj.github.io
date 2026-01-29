@@ -8,6 +8,7 @@ const Navbar = () => {
     { href: '#journey', label: 'Journey' },
     { href: '#lab', label: 'Lab' },
     { href: '#Languages', label: 'Languages' },
+    { href: '#css-battle', label: 'CSS Battle' },
     { href: '#projects', label: 'Projects' },
     { href: '#contact', label: 'Contact' },
   ];
