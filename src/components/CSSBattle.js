@@ -42,45 +42,51 @@ const CSSBattle = () => {
       try {
         setLoading(true);
         
-        // Try to fetch with CORS proxy
-        const corsProxy = 'https://api.allorigins.win/raw?url=';
-        const url = corsProxy + encodeURIComponent('https://cssbattle.dev/player/zerhouni');
-        
-        const response = await Promise.race([
-          fetch(url),
-          new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('Timeout')), 8000)
-          )
-        ]);
+        // Use the CSS Battle API proxy
+        const response = await fetch('https://cssbattle-api.vercel.app/api/player/zerhouni');
         
         if (!response.ok) {
-          throw new Error('Failed to fetch');
+          throw new Error('Failed to fetch profile');
         }
         
-        const html = await response.text();
+        const data = await response.json();
         
-        // Parse using DOMParser
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+        // Transform the API response to our component format
+        const profileData = {
+          avatar: data.profilePicture || cachedProfileData.avatar,
+          name: 'Zerhouni Omar',
+          username: data.username || 'zerhouni',
+          country: 'Morocco',
+          job: 'Full-Stack Developer',
+          isLiveData: true,
+          lastUpdated: new Date().toISOString().split('T')[0],
+          battleStats: {
+            globalRank: data.battleStats?.globalRank || 0,
+            targetsPlayed: data.battleStats?.targetsPlayed || 0,
+            totalScore: parseFloat(data.battleStats?.totalScore || 0),
+          },
+          dailyStats: {
+            targetsPlayed: data.dailyTargets?.targetsPlayed || 0,
+            avgMatch: data.dailyTargets?.avgMatch ? `${data.dailyTargets.avgMatch}%` : '0%',
+            avgCharacters: data.dailyTargets?.avgCharacters || 0,
+          },
+          versusStats: {
+            rating: data.versus?.rating || 1200,
+            gamesPlayed: data.versus?.gamesPlayed || 0,
+            wins: data.versus?.wins || 0,
+          },
+          streaks: {
+            current: data.streaks?.current || 0,
+            longest: data.streaks?.longest || 0,
+          }
+        };
         
-        // Try to extract data from HTML
-        const globalRankMatch = html.match(/Global rank<\/span><\/div><\/div>[\s\S]*?<span[^>]*>(\d+)<\/span>/);
-        const targetsPlayedMatch = html.match(/Targets played<\/span><\/div><\/div>[\s\S]*?<span[^>]*>(\d+)<\/span>/);
-        const totalScoreMatch = html.match(/Total score<\/span><\/div><\/div>[\s\S]*?<span[^>]*>([\d.]+)<\/span>/);
-        
-        if (globalRankMatch && targetsPlayedMatch && totalScoreMatch) {
-          cachedProfileData.battleStats.globalRank = parseInt(globalRankMatch[1]);
-          cachedProfileData.battleStats.targetsPlayed = parseInt(targetsPlayedMatch[1]);
-          cachedProfileData.battleStats.totalScore = parseFloat(totalScoreMatch[1]);
-          cachedProfileData.isLiveData = true;
-        }
-        
-        setProfileData(cachedProfileData);
+        setProfileData(profileData);
         setError(null);
         setLoading(false);
       } catch (err) {
         console.warn('Could not fetch live data, using cached stats:', err);
-        // Use cached data
+        // Use cached data as fallback
         setProfileData(cachedProfileData);
         setError(null);
         setLoading(false);
