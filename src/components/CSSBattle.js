@@ -2,41 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import './CSSBattle.css';
 
+const STORAGE_KEY = 'cssbattle_profile_data';
+
 const CSSBattle = () => {
   const componentRef = useRef(null);
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Cached profile data - update this manually by visiting your CSS Battle profile
-  const cachedProfileData = {
-    avatar: 'https://ik.imagekit.io/cssbattle/user%2FqIp1Xec6M1gO1E8qZdIHy4jPazB3%2Favatar_qIp1Xec6M1gO1E8qZdIHy4jPazB3.jpeg?alt=media',
-    name: 'Zerhouni Omar',
-    username: 'zerhouni',
-    country: 'Morocco',
-    job: 'Full-Stack Developer',
-    isLiveData: false,
-    lastUpdated: '2026-01-25',
-    battleStats: {
-      globalRank: 6918,
-      targetsPlayed: 33,
-      totalScore: 21052.09,
-    },
-    dailyStats: {
-      targetsPlayed: 31,
-      avgMatch: '99.94%',
-      avgCharacters: 252,
-    },
-    versusStats: {
-      rating: 1200,
-      gamesPlayed: 0,
-      wins: 0,
-    },
-    streaks: {
-      current: 16,
-      longest: 16,
-    }
-  };
 
   useEffect(() => {
     const fetchCSSBattleProfile = async () => {
@@ -54,7 +26,7 @@ const CSSBattle = () => {
         
         // Transform the API response to our component format
         const profileData = {
-          avatar: data.profilePicture || cachedProfileData.avatar,
+          avatar: data.profilePicture || 'https://ik.imagekit.io/cssbattle/user%2FqIp1Xec6M1gO1E8qZdIHy4jPazB3%2Favatar_qIp1Xec6M1gO1E8qZdIHy4jPazB3.jpeg?alt=media',
           name: 'Zerhouni Omar',
           username: data.username || 'zerhouni',
           country: 'Morocco',
@@ -82,14 +54,30 @@ const CSSBattle = () => {
           }
         };
         
+        // Save to localStorage for future fallback
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(profileData));
+        
         setProfileData(profileData);
         setError(null);
         setLoading(false);
       } catch (err) {
-        console.warn('Could not fetch live data, using cached stats:', err);
-        // Use cached data as fallback
-        setProfileData(cachedProfileData);
-        setError('Showing cached stats (live CSS Battle data is currently unavailable).');
+        console.warn('Could not fetch live data, trying localStorage:', err);
+        
+        // Try to get data from localStorage
+        try {
+          const cachedData = localStorage.getItem(STORAGE_KEY);
+          if (cachedData) {
+            const parsedData = JSON.parse(cachedData);
+            setProfileData({ ...parsedData, isLiveData: false });
+            setError('Showing cached stats (live CSS Battle data is currently unavailable).');
+          } else {
+            setError('Unable to load CSS Battle data. Please check your connection and try again.');
+          }
+        } catch (storageErr) {
+          console.error('Failed to load from localStorage:', storageErr);
+          setError('Unable to load CSS Battle data. Please check your connection and try again.');
+        }
+        
         setLoading(false);
       }
     };
