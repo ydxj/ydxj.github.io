@@ -8,6 +8,7 @@ import Navbar from './components/NavBar';
 import Projects from './components/Projects';
 import Journey from './components/Journey';
 import InteractiveLab from './components/InteractiveLab';
+import CSSBattle from './components/CSSBattle';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Journey />
         <InteractiveLab />
         <Languages />
+        <CSSBattle />
         <Projects />
         <Contact />
       </main>
