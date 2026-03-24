@@ -20,7 +20,7 @@ function App() {
         <Journey />
         <InteractiveLab />
         <Languages />
-        <CSSBattle />
+        {/* <CSSBattle /> */}
         <Projects />
         <Contact />
       </main>
