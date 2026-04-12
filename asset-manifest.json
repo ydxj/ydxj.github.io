@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.eddc0c67.css",
-    "main.js": "/static/js/main.d60e41e8.js",
+    "main.js": "/static/js/main.6fd77a68.js",
     "static/js/453.c2508f5d.chunk.js": "/static/js/453.c2508f5d.chunk.js",
     "static/media/RentoHub.WebP": "/static/media/RentoHub.90c7648bdad22a834977.WebP",
     "static/media/RestaurantMayViet.png": "/static/media/RestaurantMayViet.e02131d80c7ad5ec5b72.png",
-    "static/media/Cv de Omar Zerhouni.pdf": "/static/media/Cv de Omar Zerhouni.b2f949ea6bbd52006a36.pdf",
+    "static/media/Cv de Omar Zerhouni.pdf": "/static/media/Cv de Omar Zerhouni.7dc0733e1c5f94e23c30.pdf",
     "static/media/nourbannat.webp": "/static/media/nourbannat.2055a7f4ebf7a4ad421e.webp",
     "static/media/gsap.webp": "/static/media/gsap.3e04b8fb7d8bcdf2f8fc.webp",
     "static/media/Orgaspace.webp": "/static/media/Orgaspace.d25e0351d7ee6e5171c0.webp",
@@ -36,11 +36,11 @@
     "static/media/javascript.webp": "/static/media/javascript.10426943082f7d1eac45.webp",
     "static/media/reactjs.webp": "/static/media/reactjs.971f5c738551367f00fe.webp",
     "main.eddc0c67.css.map": "/static/css/main.eddc0c67.css.map",
-    "main.d60e41e8.js.map": "/static/js/main.d60e41e8.js.map",
+    "main.6fd77a68.js.map": "/static/js/main.6fd77a68.js.map",
     "453.c2508f5d.chunk.js.map": "/static/js/453.c2508f5d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eddc0c67.css",
-    "static/js/main.d60e41e8.js"
+    "static/js/main.6fd77a68.js"
   ]
 }
