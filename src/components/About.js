@@ -25,7 +25,7 @@ const About = () => {
       tag.setAttribute('content', content);
     };
 
-    const aboutDescription = 'About Zerhouni Omar — Full-stack developer in Morocco, WorldSkills Top 3, building responsive React/GSAP frontends and Node/Laravel backends with CI/CD.';
+    const aboutDescription = 'About Zerhouni Omar — Full-stack developer in Morocco, WorldSkills Top 1, building responsive React/GSAP frontends and Node/Laravel backends with CI/CD.';
     setMeta('description', aboutDescription);
   }, []);
 
@@ -37,7 +37,7 @@ const About = () => {
             <p className="eyebrow">About</p>
             <h2 className="fw-bold mb-3">Full-stack builder with competition-grade rigor.</h2>
             <p className="text-muted mb-3">
-              Full-stack developer based in Morocco, Top 3 nationally at WorldSkills Web Technologies (1st in the Oriental region).
+              Full-stack developer based in Morocco, Top 1 nationally at WorldSkills Web Technologies (1st in the Oriental region).
               I craft responsive interfaces and robust backends that hold up under pressure.
             </p>
             <p className="text-muted mb-3">
@@ -64,7 +64,7 @@ const About = () => {
                 <div className="achievement-card">
                   <div className="achievement-icon">🏆</div>
                   <div className="achievement-content">
-                    <h4>WorldSkills Top 3</h4>
+                    <h4>WorldSkills Top 1</h4>
                     <p>National ranking 2025, 1st Oriental region</p>
                   </div>
                 </div>

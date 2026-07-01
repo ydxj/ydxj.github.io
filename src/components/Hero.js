@@ -46,7 +46,7 @@ const Hero = () => {
     };
 
     const title = 'Zerhouni Omar | Full-Stack Developer | WorldSkills Morocco';
-    const description = 'Full-stack developer based in Morocco (WorldSkills Top 3). React, Node.js, Laravel, CI/CD. Available for freelance projects and high-velocity delivery.';
+    const description = 'Full-stack developer based in Morocco (WorldSkills Top 1). React, Node.js, Laravel, CI/CD. Available for freelance projects and high-velocity delivery.';
     const url = 'https://ydxj.github.io/';
     const image = 'https://ydxj.github.io/og-image.png';
     const keywords = 'Zerhouni Omar, Full-Stack Developer, React, Node.js, Laravel, WorldSkills Morocco, freelance developer, web developer Morocco, API development, CI/CD';
@@ -72,12 +72,12 @@ const Hero = () => {
       <div className="container-lg">
         <div className="row align-items-center g-5">
           <div className="col-lg-7">
-            <p className="eyebrow hero-stagger">Zerhouni Omar · Full-Stack · WorldSkills Top 3</p>
+            <p className="eyebrow hero-stagger">Zerhouni Omar · Full-Stack · WorldSkills Top 1</p>
             <h1 className="display-4 fw-bold hero-title hero-stagger">
               I ship fast, resilient products end-to-end.
             </h1>
             <p className="lead text-muted hero-stagger" style={{ maxWidth: '620px' }}>
-              React/GSAP on the front, Node.js & Laravel at the core, MySQL/MongoDB for data, CI/CD for safe velocity. 1st Oriental region · Top 3 national at WorldSkills Web Technologies.
+              React/GSAP on the front, Node.js & Laravel at the core, MySQL/MongoDB for data, CI/CD for safe velocity · Top 1 national at WorldSkills Web Technologies.
             </p>
             <div className="d-flex flex-wrap gap-3 hero-stagger">
               <a className="btn btn-primary px-4 py-2 rounded-pill fw-semibold" href="#projects">
@@ -92,7 +92,7 @@ const Hero = () => {
               <span className="chip">Node.js / Express</span>
               <span className="chip">PHP / Laravel</span>
               <span className="chip">MySQL · MongoDB</span>
-              <span className="chip">WorldSkills Top 3</span>
+              <span className="chip">WorldSkills Top 1</span>
             </div>
           </div>
 
@@ -118,7 +118,7 @@ const Hero = () => {
                   <span className="prop">experience</span>: <span className="string">'2+ years'</span>,
                 </div>
                 <div className="code-line indent-1">
-                  <span className="prop">worldSkills</span>: <span className="string">'Top 3 National'</span>,
+                  <span className="prop">worldSkills</span>: <span className="string">'Top 1 National'</span>,
                 </div>
                 <div className="code-line indent-1">
                   <span className="prop">mission</span>: <span className="string">'Ship fast & reliable'</span>,
@@ -140,8 +140,8 @@ const Hero = () => {
                   <span className="stat-value">8+</span>
                 </div>
                 <div className="stat-item">
-                  <span className="stat-label">Performance</span>
-                  <span className="stat-value">95+</span>
+                  <span className="stat-label">Commits</span>
+                  <span className="stat-value">2000+</span>
                 </div>
               </div>
             </div>

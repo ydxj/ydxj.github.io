@@ -30,7 +30,7 @@ const milestones = [
   {
     year: '2025 — 2026',
     title: 'WorldSkills Web Technologies',
-    subtitle: 'Top 3 national, 1st Oriental region',
+    subtitle: 'Top 1 national, 1st Oriental region',
     icon: FaAward,
     body: 'Competition track: performance, accessibility, security, and deliverables under strict constraints and technical juries.',
   },
