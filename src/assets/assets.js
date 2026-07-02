@@ -6,6 +6,7 @@ import nourbannat from './Project/nourbannat.webp'
 import rentohub from './Project/RentoHub.WebP'
 import monCentre from './Project/MonCentre.webp'
 import RestaurantMayViet from './Project/RestaurantMayViet.png'
+import cssBattleApi from './Project/cssbattle-api.png'
 
 import javascript from './tech/javascript.webp'
 import css from './tech/css.webp'
@@ -44,6 +45,7 @@ export {
     rentohub,
     monCentre,
     RestaurantMayViet,
+    cssBattleApi,
     
     javascript,
     css,

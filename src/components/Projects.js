@@ -9,16 +9,37 @@ import {
   nourbannat,
   rentohub,
   monCentre,
-  RestaurantMayViet
+  RestaurantMayViet,
+  cssBattleApi
 } from '../assets/assets.js';
 
 const projectList = [
   {
-    title: 'One-Task',
-    description:
-      'OneTask est un service simple d’envoi de tâches quotidiennes par email selon un domaine choisi par l’utilisateur (productivité, apprentissage, sport…).',
-    link: 'https://github.com/ydxj/One-Task',
-    tags: ['#React', '#Bootstrap', '#NodeJS', '#Express'],
+    id: 5,
+    title: "RentoHub",
+    description: "Saas-based property rental management platform. Car rental listings, booking system, and payment processing integrated.",
+    tags: ["React Vite", "Node.js", "Sequelize", "MySQL","JWT","Bcrypt"],
+    image: rentohub,
+    link: "https://rentohub.app",
+    progress: 100,
+    status: "completed",
+  },
+  {
+    id: 7,
+    title: "CSS Battle API",
+    description: "A powerful, serverless API that scrapes CSSBattle player profiles using Puppeteer (browser automation) and returns clean JSON data. Built with Node.js and fully compatible with Vercel for seamless deployment.",
+    tags: ["Node.js", "Puppeteer", "Serverless", "Vercel"],
+    image: cssBattleApi,
+    link: "https://cssbattle-api.vercel.app",
+    progress: 100,
+    status: "completed",
+  },
+  {
+    id: 8,
+    title: "One-Task",
+    description: "OneTask est un service simple d’envoi de tâches quotidiennes par email selon un domaine choisi par l’utilisateur (productivité, apprentissage, sport…).",
+    link: "https://github.com/ydxj/One-Task",
+    tags: ["#React", "#Bootstrap", "#NodeJS", "#Express"],
     image: onetask,
     status: 'completed',
     progress: 100,
@@ -74,16 +95,6 @@ const projectList = [
     progress: 100,
   },
   {
-    id: 5,
-    title: "RentoHub",
-    description: "Saas-based property rental management platform. Car rental listings, booking system, and payment processing integrated.",
-    tags: ["React Vite", "Node.js", "Sequelize", "MySQL","JWT","Bcrypt"],
-    image: rentohub,
-    link: "https://rentohub.app",
-    progress: 52,
-    status: "in-progress",
-  },
-  {
     id: 6,
     title: "MonCentre",
     desc: "SaaS platform for managing Centers and students. Features include center profiles, student enrollment, and progress tracking.",
@@ -95,7 +106,7 @@ const projectList = [
     github: "#",
     rating: 4.6,
     featured: false,
-    progress: 27,
+    progress: 70,
     status: "in-progress",
   },
 ];
