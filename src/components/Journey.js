@@ -34,6 +34,13 @@ const milestones = [
     icon: FaAward,
     body: 'Competition track: performance, accessibility, security, and deliverables under strict constraints and technical juries.',
   },
+  {
+    year: '2025 — Present',
+    title: 'Freelance Full-Stack Developer',
+    subtitle: 'React, Node.js, Laravel, CI/CD',
+    icon: FaCodeBranch,
+    body: 'Building production systems for clients, with a focus on performance, security, and maintainability. I ship fast and safely, with CI/CD pipelines and thorough testing.',
+  },
 ];
 
 const Journey = () => {
