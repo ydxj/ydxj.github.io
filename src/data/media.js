@@ -6,7 +6,7 @@
 //   external → `url` opens in a new tab (news sites, TV replays, …)
 //
 // Optional: `thumbnail` (overrides the default), `duration` ("m:ss"),
-// `date`, `featured` (shown on the home page, max 4).
+// `featured` (shown on the home page, max 4).
 
 export const media = [
   {
@@ -30,6 +30,8 @@ export const media = [
 ];
 
 export const featuredMedia = media.filter((item) => item.featured).slice(0, 4);
+
+export const mediaKey = (item) => item.id || item.url || item.src;
 
 export function mediaThumbnail(item) {
   if (item.thumbnail) return item.thumbnail;

@@ -188,7 +188,7 @@ const photoList = [
 const galleryFiles = require.context('../assets/gallery', false, /\.webp$/);
 
 /** Responsive sources for a processed photo: { src, srcSet, full, width, height }. */
-export function photoSources(slug, preferredWidth = 1280) {
+function photoSources(slug, preferredWidth = 1280) {
   const meta = manifest[slug];
   if (!meta) return null;
 

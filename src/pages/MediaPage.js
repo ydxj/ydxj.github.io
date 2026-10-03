@@ -1,6 +1,6 @@
 import PageIntro from '../components/layout/PageIntro';
 import VideoCard from '../components/ui/VideoCard';
-import { media } from '../data/media';
+import { media, mediaKey } from '../data/media';
 import { useVideoPlayer } from '../hooks/useOverlays';
 import usePageMeta from '../hooks/usePageMeta';
 
@@ -25,7 +25,7 @@ const MediaPage = () => {
       <section className="container section--tight-top section" aria-label="All videos">
         <div className={`video-grid${media.length < 3 ? ' video-grid--few' : ''}`}>
           {media.map((item) => (
-            <VideoCard key={item.id || item.url || item.src} item={item} onPlay={play} />
+            <VideoCard key={mediaKey(item)} item={item} onPlay={play} />
           ))}
         </div>
       </section>

@@ -67,6 +67,8 @@ Add the route in `src/App.js` **and** in `scripts/spa-routes.js`, so GitHub Page
 
 ```bash
 npm start        # dev server on http://localhost:3000
-npm run build    # production build (+ copies index.html into each route)
+npm run build    # checks import case, builds, copies index.html into each route
 npm run images   # regenerate gallery images after adding photos
 ```
+
+> On Windows, renaming a file by changing only its letter case (e.g. `Logo.png` → `logo.png`) is invisible to git, and the build then fails on GitHub's Linux runner. Use `git mv -f Logo.png logo.png`; `npm run build` checks this before building.
