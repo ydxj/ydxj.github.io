@@ -18,7 +18,7 @@ const linkedin = socials.find((social) => social.label === 'LinkedIn');
 const About = () => {
   const rootRef = useRef(null);
   useReveal(rootRef);
-  const photo = getPhoto('competition-focus');
+  const photo = getPhoto('competition-coding');
 
   return (
     <section id="about" className="section section--soft about" ref={rootRef} aria-labelledby="about-title" tabIndex={-1}>
