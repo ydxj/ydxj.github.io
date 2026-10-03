@@ -1,0 +1,175 @@
+.worldskills {
+  position: relative;
+  overflow: hidden;
+}
+
+.worldskills__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.worldskills__title {
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
+  letter-spacing: -0.04em;
+}
+
+.worldskills__subtitle {
+  margin: 14px 0 0;
+  color: var(--ink);
+  font-size: 1.06rem;
+  font-weight: 600;
+}
+
+.worldskills__text {
+  max-width: 600px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.ws-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 36px 0 32px;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.ws-fact {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+}
+
+.ws-fact__icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.ws-fact__flag {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.ws-fact strong {
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.ws-fact span:last-child {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* Credential --------------------------------------------------------------- */
+
+.credential {
+  justify-self: end;
+  width: 100%;
+  max-width: 340px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(31, 90, 240, 0.28), transparent 60%),
+    var(--navy);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+.credential__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.credential__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.credential__label {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.credential__name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.credential__badge {
+  display: grid;
+  place-items: center;
+  margin: 20px 0 16px;
+  padding: 16px;
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.credly-badge {
+  display: grid;
+  place-items: center;
+}
+
+.credly-badge iframe {
+  display: block;
+  border: 0;
+}
+
+.credential__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+
+.credential__link:hover { color: #fff; }
+
+@media (max-width: 900px) {
+  .worldskills__grid { grid-template-columns: 1fr; }
+  .credential { justify-self: start; }
+}
+
+@media (max-width: 560px) {
+  .ws-facts {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ws-fact {
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+  }
+
+  .ws-fact__icon {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .credential { max-width: none; }
+}

@@ -1,0 +1,140 @@
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Vertical rail behind the dots */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 147px;
+  width: 1px;
+  background: var(--line-strong);
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 128px 40px minmax(0, 1fr);
+  align-items: center;
+}
+
+.timeline__period {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline__dot {
+  position: relative;
+  justify-self: center;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  background: var(--bg-soft);
+}
+
+.timeline__item.is-highlight .timeline__dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.timeline__card {
+  display: flex;
+  gap: 18px;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.timeline__card:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+.timeline__item.is-highlight .timeline__icon {
+  border-color: transparent;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.timeline__title {
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.timeline__role {
+  margin: 2px 0 6px;
+  color: var(--accent);
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.timeline__text {
+  margin: 0;
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .timeline { gap: 20px; }
+
+  .timeline::before {
+    top: 6px;
+    left: 5px;
+  }
+
+  .timeline__item {
+    grid-template-columns: 11px minmax(0, 1fr);
+    column-gap: 18px;
+    row-gap: 8px;
+    align-items: start;
+  }
+
+  .timeline__period {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .timeline__dot {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 5px;
+  }
+
+  .timeline__card {
+    grid-column: 2;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .timeline__icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,117 @@
+.projects-page {
+  display: grid;
+  gap: 24px;
+  padding-top: 16px;
+  padding-bottom: var(--section-y);
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 4vw, 48px);
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.project-row__media {
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-soft);
+}
+
+.project-row__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-row__type {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+  color: var(--subtle);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-row__status {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #fff4e5;
+  color: #a15c07;
+  letter-spacing: 0.04em;
+}
+
+.project-row__title {
+  font-size: 1.4rem;
+  letter-spacing: -0.025em;
+}
+
+.project-row__summary {
+  margin: 8px 0 20px;
+  color: var(--ink-2);
+}
+
+.project-row__details {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 20px;
+  padding: 16px 0;
+  border-block: 1px solid var(--line);
+}
+
+.project-row__details div {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.project-row__details dt {
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project-row__details dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.project-row__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn--sm.project-row__code {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.btn--sm.project-row__code:hover {
+  border-color: var(--ink);
+  background: transparent;
+}
+
+@media (max-width: 860px) {
+  .project-row { grid-template-columns: 1fr; padding: 16px; }
+}
+
+@media (max-width: 480px) {
+  .project-row__details div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}

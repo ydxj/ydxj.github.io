@@ -1,0 +1,46 @@
+.gallery-page {
+  padding-bottom: var(--section-y);
+}
+
+/* Column masonry keeps every photo at its natural aspect ratio. */
+.masonry {
+  columns: 3 300px;
+  column-gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.masonry__item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  animation: masonry-in 400ms ease-out both;
+}
+
+.masonry__hit {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-soft);
+  cursor: zoom-in;
+}
+
+.masonry__hit img {
+  width: 100%;
+  transition: transform 500ms ease, opacity 300ms ease;
+}
+
+.masonry__hit:hover img { transform: scale(1.03); }
+
+.masonry__caption {
+  margin: 8px 2px 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+@keyframes masonry-in {
+  from { opacity: 0; transform: translateY(8px); }
+}

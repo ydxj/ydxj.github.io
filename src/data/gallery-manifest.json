@@ -1,0 +1,209 @@
+{
+  "airport-departure": {
+    "width": 3024,
+    "height": 4032,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "competition-coding": {
+    "width": 4081,
+    "height": 2718,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "competition-day": {
+    "width": 3964,
+    "height": 2639,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "competition-focus": {
+    "width": 3976,
+    "height": 2650,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "competition-workstation": {
+    "width": 4014,
+    "height": 2675,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "competitors-exchange": {
+    "width": 2936,
+    "height": 1955,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "delegation-arrival": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "huangpu-river-skyline": {
+    "width": 4032,
+    "height": 3024,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "huangpu-river-team": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "opening-ceremony-flag": {
+    "width": 1600,
+    "height": 1066,
+    "widths": [
+      640,
+      1280,
+      1600
+    ]
+  },
+  "opening-ceremony": {
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      640,
+      1280,
+      1600
+    ]
+  },
+  "team-arrival-wide": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "team-arrival": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "team-bus-to-venue": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "team-flag-night": {
+    "width": 1280,
+    "height": 853,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "team-selfie-flag": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "team-venue": {
+    "width": 2560,
+    "height": 1706,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "traditional-dress-backstage": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "traditional-dress-stairs": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      640,
+      1280,
+      1600
+    ]
+  },
+  "traditional-dress-team": {
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      640,
+      1280
+    ]
+  },
+  "web-technologies-competitors": {
+    "width": 4077,
+    "height": 2719,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "web-technologies-hall": {
+    "width": 3961,
+    "height": 2638,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "workstation-review": {
+    "width": 4061,
+    "height": 2706,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  },
+  "worldskills-shanghai-sign": {
+    "width": 2560,
+    "height": 1706,
+    "widths": [
+      640,
+      1280,
+      2000
+    ]
+  }
+}
