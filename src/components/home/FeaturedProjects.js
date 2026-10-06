@@ -14,7 +14,7 @@ const FeaturedProjects = () => {
         <SectionHeader
           id="projects-title"
           title="Featured Projects"
-          subtitle="A selection of recent work: live products, client projects and an internship build."
+          subtitle="A selection of recent work: products, client websites and full-stack platforms."
           action={{ to: '/projects', label: `View all ${projects.length} projects` }}
         />
         <div className="project-grid">

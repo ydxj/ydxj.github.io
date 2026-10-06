@@ -1,4 +1,6 @@
 import cssbattleApi from '../assets/Project/cssbattle-api.webp';
+import digistock from '../assets/Project/digistock.webp';
+import digitap from '../assets/Project/digitap.webp';
 import elearning from '../assets/Project/elearning.webp';
 import moncentre from '../assets/Project/moncentre.webp';
 import nourbannat from '../assets/Project/nourbannat.webp';
@@ -6,11 +8,55 @@ import onetask from '../assets/Project/onetask.webp';
 import orgaspace from '../assets/Project/orgaspace.webp';
 import rentohub from '../assets/Project/rentohub.webp';
 import restaurantMayViet from '../assets/Project/restaurant-may-viet.webp';
+import smartdesigner from '../assets/Project/smartdesigner.webp';
 import webEcommerce from '../assets/Project/web-ecommerce.webp';
 
 // `summary` = what it is, `why` = the problem it solves, `role` = what I did,
 // `result` = where it stands today. `featured` projects appear on the home page.
+// `tags` lists the technologies; leave it empty to hide the tag row.
 export const projects = [
+  {
+    slug: 'digistock',
+    title: 'DigiStock',
+    type: 'Desktop app · DigiStudio',
+    summary:
+      'Stock management and point-of-sale desktop app: barcode checkout, purchases, suppliers, customer credit, multi-warehouse inventory and reports.',
+    why: 'Small shops track stock, sales and customer credit on paper or in spreadsheets. DigiStock puts the counter and the back office in one fast, keyboard-driven app.',
+    role: 'Built with DigiStudio: the desktop application (dashboard, POS with shortcuts and scanner support, stock, purchasing, clients, users) and its marketing website.',
+    result: 'Desktop app with a free plan and a Premium tier (WhatsApp, multi-user), presented on digistock.digistudio.dev.',
+    tags: [],
+    image: digistock,
+    links: { live: 'https://digistock.digistudio.dev/' },
+    featured: true,
+  },
+  {
+    slug: 'digitap',
+    title: 'DigiTap',
+    type: 'NFC product · DigiStudio',
+    summary:
+      'NFC business card linked to a personal page that gathers contact details, social links, website and actions, shared in a single tap or QR scan.',
+    why: 'Paper cards get lost and go out of date. DigiTap keeps a professional identity on one page that can be updated any time, without an app.',
+    role: 'Built with DigiStudio: the product website, the profile pages, and the dashboard with statistics and the Fidello loyalty programme.',
+    result: 'Offered to restaurants, hotels, shops, events and companies, presented on digitap.digistudio.dev.',
+    tags: [],
+    image: digitap,
+    links: { live: 'https://digitap.digistudio.dev/' },
+    featured: true,
+  },
+  {
+    slug: 'smart-designer',
+    title: 'Smart Designer',
+    type: 'Client project',
+    summary:
+      'Portfolio website for a freelance art director: services, filterable brand references, client logos and a contact form.',
+    why: 'With 24 years in art direction and branding, the client needed a site that presents years of brand work as carefully as the work itself.',
+    role: 'Developed the site in React with GSAP animations, and deployed it on Vercel.',
+    result: 'Live at smartdesigner.pro.',
+    tags: ['React', 'Vite', 'GSAP', 'Vercel'],
+    image: smartdesigner,
+    links: { live: 'https://www.smartdesigner.pro/' },
+    featured: true,
+  },
   {
     slug: 'rentohub',
     title: 'RentoHub',
@@ -22,7 +68,6 @@ export const projects = [
     tags: ['React', 'Vite', 'Node.js', 'Sequelize', 'MySQL', 'JWT'],
     image: rentohub,
     links: { live: 'https://rentohub.app' },
-    featured: true,
   },
   {
     slug: 'chu-oujda-training',
@@ -35,7 +80,6 @@ export const projects = [
     tags: ['React', 'Bootstrap', 'Node.js', 'Express', 'MySQL'],
     image: elearning,
     links: { code: 'https://github.com/ydxj/site-web-formation' },
-    featured: true,
   },
   {
     slug: 'nour-bannat',
@@ -48,7 +92,6 @@ export const projects = [
     tags: ['WordPress', 'WooCommerce', 'PHP', 'MySQL'],
     image: nourbannat,
     links: { live: 'https://nourbannat.com/' },
-    featured: true,
   },
   {
     slug: 'cssbattle-api',

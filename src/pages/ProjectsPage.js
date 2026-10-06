@@ -56,13 +56,15 @@ const ProjectsPage = () => {
                 ))}
               </dl>
 
-              <ul className="tags" aria-label="Technologies">
-                {project.tags.map((tag) => (
-                  <li key={tag} className="tag">
-                    {tag}
-                  </li>
-                ))}
-              </ul>
+              {project.tags.length > 0 && (
+                <ul className="tags" aria-label="Technologies">
+                  {project.tags.map((tag) => (
+                    <li key={tag} className="tag">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              )}
 
               <div className="project-row__links">
                 {project.links.live && (

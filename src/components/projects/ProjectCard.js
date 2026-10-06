@@ -19,13 +19,15 @@ const ProjectCard = ({ project }) => {
           </a>
         </h3>
         <p className="project-card__summary">{project.summary}</p>
-        <ul className="tags" aria-label="Technologies">
-          {project.tags.slice(0, 4).map((tag) => (
-            <li key={tag} className="tag">
-              {tag}
-            </li>
-          ))}
-        </ul>
+        {project.tags.length > 0 && (
+          <ul className="tags" aria-label="Technologies">
+            {project.tags.slice(0, 4).map((tag) => (
+              <li key={tag} className="tag">
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
         <span className="project-card__arrow" aria-hidden="true">
           <FiArrowUpRight />
         </span>
