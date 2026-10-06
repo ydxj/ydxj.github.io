@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.f4f0211f.css",
-    "main.js": "/static/js/main.622de9a2.js",
+    "main.js": "/static/js/main.3e736b77.js",
     "static/css/59.ec37724c.chunk.css": "/static/css/59.ec37724c.chunk.css",
     "static/js/59.58cbf2f1.chunk.js": "/static/js/59.58cbf2f1.chunk.js",
     "static/js/88.fffd7570.chunk.js": "/static/js/88.fffd7570.chunk.js",
     "static/css/676.00556b1a.chunk.css": "/static/css/676.00556b1a.chunk.css",
-    "static/js/676.acd342f2.chunk.js": "/static/js/676.acd342f2.chunk.js",
+    "static/js/676.cad563ee.chunk.js": "/static/js/676.cad563ee.chunk.js",
     "static/js/3.5a7a5031.chunk.js": "/static/js/3.5a7a5031.chunk.js",
     "static/media/web-technologies-hall-2000.webp": "/static/media/web-technologies-hall-2000.0aa3e18ae571f826aa80.webp",
     "static/media/airport-departure-2000.webp": "/static/media/airport-departure-2000.46e4d851b499b293d5c4.webp",
@@ -64,6 +64,7 @@
     "static/media/huangpu-river-skyline-640.webp": "/static/media/huangpu-river-skyline-640.5f02a2b02d47b9747652.webp",
     "static/media/huangpu-river-team-640.webp": "/static/media/huangpu-river-team-640.77d2f7ceea47e1ae08da.webp",
     "static/media/worldskills-shanghai-sign-640.webp": "/static/media/worldskills-shanghai-sign-640.e483795a50f9600a1401.webp",
+    "static/media/digistock.webp": "/static/media/digistock.e536555203469d6ea506.webp",
     "static/media/team-venue-640.webp": "/static/media/team-venue-640.6c67f3efc0d0a94398c5.webp",
     "static/media/team-selfie-flag-640.webp": "/static/media/team-selfie-flag-640.d9556ce233e7a354f1f4.webp",
     "static/media/team-bus-to-venue-640.webp": "/static/media/team-bus-to-venue-640.c0d71e9571bcfd6ca815.webp",
@@ -80,19 +81,21 @@
     "static/media/competition-day-640.webp": "/static/media/competition-day-640.c2f51db587016baebb44.webp",
     "static/media/competition-workstation-640.webp": "/static/media/competition-workstation-640.069a1e134e4179e6c9fb.webp",
     "static/media/competition-coding-640.webp": "/static/media/competition-coding-640.47b9f5ab5bb21dd7f316.webp",
+    "static/media/smartdesigner.webp": "/static/media/smartdesigner.6dbbe12834c2c422a7dd.webp",
+    "static/media/digitap.webp": "/static/media/digitap.a45602923d436ff29032.webp",
     "static/media/onetask.webp": "/static/media/onetask.0cf66f3e541018a7fa91.webp",
     "index.html": "/index.html",
     "main.f4f0211f.css.map": "/static/css/main.f4f0211f.css.map",
-    "main.622de9a2.js.map": "/static/js/main.622de9a2.js.map",
+    "main.3e736b77.js.map": "/static/js/main.3e736b77.js.map",
     "59.ec37724c.chunk.css.map": "/static/css/59.ec37724c.chunk.css.map",
     "59.58cbf2f1.chunk.js.map": "/static/js/59.58cbf2f1.chunk.js.map",
     "88.fffd7570.chunk.js.map": "/static/js/88.fffd7570.chunk.js.map",
     "676.00556b1a.chunk.css.map": "/static/css/676.00556b1a.chunk.css.map",
-    "676.acd342f2.chunk.js.map": "/static/js/676.acd342f2.chunk.js.map",
+    "676.cad563ee.chunk.js.map": "/static/js/676.cad563ee.chunk.js.map",
     "3.5a7a5031.chunk.js.map": "/static/js/3.5a7a5031.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4f0211f.css",
-    "static/js/main.622de9a2.js"
+    "static/js/main.3e736b77.js"
   ]
 }
