@@ -1,4 +1,5 @@
 import cssbattleApi from '../assets/Project/cssbattle-api.webp';
+import digiplan from '../assets/Project/digiplan.webp';
 import digistock from '../assets/Project/digistock.webp';
 import digitap from '../assets/Project/digitap.webp';
 import elearning from '../assets/Project/elearning.webp';
@@ -15,6 +16,20 @@ import webEcommerce from '../assets/Project/web-ecommerce.webp';
 // `result` = where it stands today. `featured` projects appear on the home page.
 // `tags` lists the technologies; leave it empty to hide the tag row.
 export const projects = [
+  {
+    slug: 'digiplan',
+    title: 'DigiPlan',
+    type: 'Desktop app · DigiStudio',
+    summary:
+      'Windows appointment-management software for salons, practices and independent professionals, with scheduling, client records, payments and WhatsApp reminders.',
+    why: 'Professionals need one clear view of their appointments, clients and daily payments instead of relying on notebooks or scattered tools.',
+    role: 'Built with DigiStudio: the Windows desktop application for calendars, client records, services, payments, receipts, Google Calendar sync and automated WhatsApp reminders.',
+    result: 'Live at digiplan.digistudio.dev, with Free and Pro editions and offline support when the app is open on Windows.',
+    tags: ['Windows desktop', 'React', 'Offline-first', 'WhatsApp'],
+    image: digiplan,
+    links: { live: 'https://digiplan.digistudio.dev/' },
+    featured: true,
+  },
   {
     slug: 'digistock',
     title: 'DigiStock',
@@ -55,7 +70,6 @@ export const projects = [
     tags: ['React', 'Vite', 'GSAP'],
     image: smartdesigner,
     links: { live: 'https://www.smartdesigner.pro/' },
-    featured: true,
   },
   {
     slug: 'rentohub',
