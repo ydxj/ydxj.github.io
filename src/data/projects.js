@@ -1,3 +1,4 @@
+import cmcScheduleManager from '../assets/Project/cmc-schedule-manager.webp';
 import cssbattleApi from '../assets/Project/cssbattle-api.webp';
 import digiplan from '../assets/Project/digiplan.webp';
 import digistock from '../assets/Project/digistock.webp';
@@ -132,16 +133,17 @@ export const projects = [
     links: { live: 'https://moncentre.app' },
   },
   {
-    slug: 'web-ecommerce',
-    title: 'Web E-commerce',
+    slug: 'cmc-schedule-manager',
+    title: 'CMC Schedule Manager',
     type: 'Full-stack app',
-    summary: 'Marketplace for buyers and sellers with product listings, cart, orders and role-based dashboards.',
-    why: 'An end-to-end exercise in auth, roles and transactional flows on a real-world use case.',
-    role: 'Built the React front end and the Node.js / Express API with JWT auth and MySQL.',
+    summary:
+      'Timetable management platform for the CMC training centres: weekly and monthly schedules, rooms, groups, modules and hours tracking per trainer.',
+    why: 'Timetables were built by hand and shared as PDFs, with no easy way to see how many hours of each module were planned, left or exceeded.',
+    role: 'Built the Laravel REST API and the Nuxt 3 front end, with role-based spaces for DOSI, directors, heads of department and trainers, Excel import/export and downloadable timetables.',
     result: 'Open source on GitHub.',
-    tags: ['React', 'GSAP', 'React Router', 'Node.js', 'Express', 'JWT', 'MySQL'],
-    image: webEcommerce,
-    links: { code: 'https://github.com/ydxj/webEcommerce' },
+    tags: ['Nuxt 3', 'Vue 3', 'Laravel', 'PHP', 'REST API'],
+    image: cmcScheduleManager,
+    links: { code: 'https://github.com/ydxj/CMC-project' },
   },
   {
     slug: 'onetask',
@@ -178,6 +180,18 @@ export const projects = [
     tags: ['React', 'CSS'],
     image: orgaspace,
     links: { code: 'https://github.com/ydxj/ecommerce-website' },
+  },
+  {
+    slug: 'web-ecommerce',
+    title: 'Web E-commerce',
+    type: 'Full-stack app',
+    summary: 'Marketplace for buyers and sellers with product listings, cart, orders and role-based dashboards.',
+    why: 'An end-to-end exercise in auth, roles and transactional flows on a real-world use case.',
+    role: 'Built the React front end and the Node.js / Express API with JWT auth and MySQL.',
+    result: 'Open source on GitHub.',
+    tags: ['React', 'GSAP', 'React Router', 'Node.js', 'Express', 'JWT', 'MySQL'],
+    image: webEcommerce,
+    links: { code: 'https://github.com/ydxj/webEcommerce' },
   },
 ];
 
