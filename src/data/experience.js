@@ -3,13 +3,22 @@ import { FiAward, FiBookOpen, FiBriefcase, FiFlag, FiHeart } from 'react-icons/f
 // Most recent first.
 export const experience = [
   {
+    period: '2026 — Present',
+    title: 'Engineering Cycle · EHEIM',
+    role: "Cycle d'Ingénieur · 3rd year",
+    description:
+      "Third-year engineering student at EHEIM (École des Hautes Études d'Ingénierie, Oujda), deepening the foundations behind the products I build.",
+    icon: FiBookOpen,
+    highlight: true,
+  },
+  {
     period: '2026',
     title: 'WorldSkills Shanghai 2026',
     role: 'Competitor · Web Technologies · Morocco',
     description:
       'Represented Morocco in Web Technologies at the 48th WorldSkills Competition in Shanghai, 22–26 September 2026.',
     icon: FiFlag,
-    highlight: true,
+
   },
   {
     period: '2025 — 2026',

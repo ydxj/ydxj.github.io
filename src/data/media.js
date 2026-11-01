@@ -10,6 +10,14 @@
 
 export const media = [
   {
+    title: 'WorldSkills Shanghai 2026 - WebTechnology',
+    type: 'youtube',
+    id: '-89Pc29MxOA',
+    source: 'OFPPT',
+    context: 'OFPPT feature on the Web Technologies skill at WorldSkills Shanghai 2026.',
+    featured: true,
+  },
+  {
     title: "Les candidats de l'OFPPT en route vers WorldSkills Shanghai 2026",
     type: 'youtube',
     id: '24ni-ardJGE',
@@ -25,7 +33,6 @@ export const media = [
     source: 'OFPPT',
     duration: '5:34',
     context: 'Official statement on the OFPPT team at the opening of the 48th WorldSkills Competition.',
-    featured: true,
   },
 ];
 
