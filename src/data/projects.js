@@ -10,6 +10,7 @@ import onetask from '../assets/Project/onetask.webp';
 import orgaspace from '../assets/Project/orgaspace.webp';
 import rentohub from '../assets/Project/rentohub.webp';
 import restaurantMayViet from '../assets/Project/restaurant-may-viet.webp';
+import runtide from '../assets/Project/runtide.webp';
 import smartdesigner from '../assets/Project/smartdesigner.webp';
 import webEcommerce from '../assets/Project/web-ecommerce.webp';
 
@@ -58,6 +59,19 @@ export const projects = [
     image: digitap,
     links: { live: 'https://digitap.digistudio.dev/' },
     featured: true,
+  },
+  {
+    slug: 'runtide',
+    title: 'RUNTIDE',
+    type: 'Developer tool · Open source',
+    summary:
+      'Self-hosted execution and verification platform for Windows: runs AI-agent and developer tasks in isolated workspaces, checks the result and produces a signed, replayable Run Receipt.',
+    why: 'When a coding agent or a script says "done", there is no proof of what actually ran. RUNTIDE records every command, verifies the outcome against real checks and keeps portable evidence, while also showing what is running on the machine: processes, ports, services and logs.',
+    role: 'Designed and built the whole product: the Go engine (Win32 APIs, Job Objects, SQLite), the Wails + React desktop app, the CLI, an MCP server for coding agents and a self-hosted receipt server.',
+    result: 'Release candidate 0.9.1 on GitHub, tested on Windows 10/11 with Git worktree and WSL2 isolation.',
+    tags: ['Go', 'Wails', 'React', 'TypeScript', 'Tailwind CSS', 'SQLite', 'MCP'],
+    image: runtide,
+    links: { code: 'https://github.com/ydxj/RUNTIDE' },
   },
   {
     slug: 'smart-designer',
